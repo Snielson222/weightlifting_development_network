@@ -64,6 +64,8 @@ def sign_up():
     if form.validate_on_submit():
         user = User(
             username=form.data['username'],
+            name = form.data['name'],
+            experience = form.data['experience'],
             email=form.data['email'],
             password=form.data['password']
         )

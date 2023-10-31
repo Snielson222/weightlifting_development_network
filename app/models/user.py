@@ -10,9 +10,13 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable = False)
+    experience = db.Column(db.Integer)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    user_review_id = db.relationship("Review", back_populates = "review_user_id")
+    user_exercise_id = db.relationship("Exercise", back_populates = "exercise_user_id")
 
     @property
     def password(self):
@@ -28,6 +32,8 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
+            "name": self.name,
+            "experience": self.experience,
             'username': self.username,
             'email': self.email
         }
