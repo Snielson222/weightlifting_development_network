@@ -21,6 +21,7 @@ class Exercise(db.Model):
             "id": self.id,
             "name": self.name,
             "type": self.type,
+            "image": self.image,
             "description": self.description,
             "createdAt": self.created_at
         }

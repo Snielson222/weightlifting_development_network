@@ -4,8 +4,9 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { NavLink } from "react-router-dom";
 
-function ProfileButton({ user }) {
+export default function ExerciseButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -37,10 +38,9 @@ function ProfileButton({ user }) {
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
-  return (
-    <>
+  return (<div>
       <button onClick={openMenu}>
-        <i className="fa fa-bars" />
+        Exercises
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
@@ -52,23 +52,18 @@ function ProfileButton({ user }) {
             </li>
           </>
         ) : (
-          <>
-            <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-          </>
+          <div id="exerciseButtonMenu">
+            <div>
+            <NavLink className="exerciseLink" exact to="/upperbody">Upper Body</NavLink>
+            </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/lowerbody">Lower Body</NavLink>
+            </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/warmup">Warm Ups</NavLink>
+            </div>
+          </div>
         )}
       </ul>
-    </>
-  );
+      </div>)
 }
-
-export default ProfileButton;

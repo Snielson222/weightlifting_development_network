@@ -3,21 +3,30 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import logo1 from './logo1.png'
+import ExerciseButton from './ExerciseButton';
+import CreateExerciseModal from '../ExerciseComponents/createExerciseModal';
+import OpenModalButton from '../OpenModalButton';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
+		<div id="nav">
+			<div id="logoNav">
+				<NavLink exact to="/"><img src={logo1} alt='logo' id='logo'></img></NavLink>
+				<ExerciseButton />
+				<OpenModalButton
+              buttonText="Create an Exercise"
+              modalComponent={<CreateExerciseModal />}
+            />
+			</div>
 			{isLoaded && (
-				<li>
+				<div>
 					<ProfileButton user={sessionUser} />
-				</li>
+				</div>
 			)}
-		</ul>
+		</div>
 	);
 }
 
