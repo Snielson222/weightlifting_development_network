@@ -11,12 +11,14 @@ function SignupFormModal() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [name, setName] = useState("")
+	const [experience, setExperience] = useState("")
 	const { closeModal } = useModal();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const data = await dispatch(signUp(username, email, password, experience, name));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -38,6 +40,24 @@ function SignupFormModal() {
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
+				<label>
+					Name
+					<input
+						type="text"
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Number of Years of Workout Experience
+					<input
+						type="text"
+						value={experience}
+						onChange={(e) => setExperience(e.target.value)}
+						required
+					/>
+				</label>
 				<label>
 					Email
 					<input
