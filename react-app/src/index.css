@@ -98,3 +98,12 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     flex-direction: column;
     align-items: center;
 }
+
+.hidden {
+    display: none;
+}
+
+.notHidden {
+    display: flex;
+    padding: 10px;
+}

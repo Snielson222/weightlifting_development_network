@@ -53,3 +53,14 @@ def upload_image():
     else:
         print(form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    
+@exercise_routes.route('/<int:id>/delete', methods=['DELETE'])
+@login_required
+def delete_exercise(id):
+    exercise_to_delete = Exercise.query.get(id)
+    if exercise_to_delete:
+        db.session.delete(exercise_to_delete)
+        db.session.commit()
+        return exercise_to_delete.to_dict()
+    else:
+        return {"error": "No Exercise Found"}
