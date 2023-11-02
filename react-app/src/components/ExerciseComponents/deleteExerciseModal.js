@@ -14,7 +14,7 @@ export default function DeleteExerciseModal({id}) {
     function deleteFunction() {
         dispatch(thunkDeleteExercise(id))
         closeModal()
-        return push('/')
+        return push('/user')
     }
     return(<div>
         <button onClick={deleteFunction}>Yes Delete Exercise</button>
