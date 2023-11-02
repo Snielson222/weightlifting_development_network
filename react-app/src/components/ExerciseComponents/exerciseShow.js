@@ -20,11 +20,5 @@ export default function ExerciseShow() {
         <h1>{thisExercise?.name}</h1>
         <img id="thisExerciseImage" src={thisExercise?.image}></img>
         <p>{thisExercise?.description}</p>
-        {thisExercise?.reviews.map((review) => (
-            <div key={review.id}>
-                <div>{review.createdAt}</div>
-                <div>{review.description}</div>
-            </div>
-        ))}
     </div>)
 }

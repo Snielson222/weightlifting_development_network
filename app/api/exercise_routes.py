@@ -41,7 +41,8 @@ def upload_image():
                 type = form.data['type'],
                 description = form.data['description'],
                 image = image_url,
-                created_at = date.today()
+                created_at = date.today(),
+                owner_id = current_user.id
             )
 
             db.session.add(new_exercise)

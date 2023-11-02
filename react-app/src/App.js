@@ -11,6 +11,7 @@ import UpperBody from "./components/ExerciseComponents/upperBody";
 import LowerBody from "./components/ExerciseComponents/lowerBody";
 import WarmUp from "./components/ExerciseComponents/warmUp";
 import ExerciseShow from "./components/ExerciseComponents/exerciseShow";
+import UserPage from "./components/User";
 
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route exact path="/exercise/:id">
             <ExerciseShow />
+          </Route>
+          <Route exact path="/user">
+            <UserPage />
           </Route>
         </Switch>
       )}

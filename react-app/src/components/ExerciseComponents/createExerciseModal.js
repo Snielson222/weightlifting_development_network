@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateExercise } from "../../store/exercise";
 import { NavLink, useParams, useHistory} from "react-router-dom/cjs/react-router-dom.min";
-
+import { useModal } from "../../context/Modal";
 
 
 export default function CreateExerciseModal() {
@@ -15,7 +15,7 @@ export default function CreateExerciseModal() {
     const [type, setType] = useState("")
     console.log("🚀 ~ file: createExerciseModal.js:14 ~ CreateExerciseModal ~ type:", type)
     const [description, setDescription] = useState("")
-
+    const {closeModal} = useModal()
     const dispatch = useDispatch()
     const {push} = useHistory()
 
@@ -29,8 +29,9 @@ export default function CreateExerciseModal() {
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-        await dispatch(thunkCreateExercise(formData));
-        push("/");
+        const data = await dispatch(thunkCreateExercise(formData));
+        closeModal()
+        return push("/");
     }
     const ub = "Upper Body"
     const lb = "Lower Body"

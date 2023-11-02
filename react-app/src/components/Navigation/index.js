@@ -20,6 +20,7 @@ function Navigation({ isLoaded }){
               buttonText="Create an Exercise"
               modalComponent={<CreateExerciseModal />}
             />
+				<NavLink exact to="/user"><button>User Page</button></NavLink>
 			</div>
 			{isLoaded && (
 				<div>
