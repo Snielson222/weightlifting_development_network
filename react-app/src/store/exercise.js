@@ -36,10 +36,11 @@ export const thunkCreateExercise = (form) => async (dispatch) => {
 };
 
 //UPDATE EXERCISE
-export const thunkUpdateExercise = (form, id) => async (dispatch) => {
+export const thunkUpdateExercise = (updatedExercise, id) => async (dispatch) => {
     const res = await fetch(`/api/exercise/${id}`, {
         method: "PUT",
-        body: form
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedExercise)
     });
     if (res.ok) {
        const data = await res.json();

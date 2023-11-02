@@ -5,6 +5,7 @@ import { thunkGetAllExercises } from "../../store/exercise";
 import { NavLink, useParams} from "react-router-dom/cjs/react-router-dom.min";
 import OpenModalButton from "../OpenModalButton";
 import DeleteExerciseModal from "./deleteExerciseModal";
+import UpdateExerciseModal from "./updateExerciseModel";
 
 
 export default function ExerciseShow() {
@@ -28,6 +29,10 @@ export default function ExerciseShow() {
         <OpenModalButton 
             buttonText="Delete Exercise"
             modalComponent={<DeleteExerciseModal id={id} />}
+            />
+        <OpenModalButton 
+            buttonText="Update Exercise"
+            modalComponent={<UpdateExerciseModal id={id} />}
             />
         </div>
         <h4>Muscles Targeted: {thisExercise?.targetMuscles}</h4>

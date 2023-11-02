@@ -8,12 +8,9 @@ import { useModal } from "../../context/Modal";
 
 export default function CreateExerciseModal() {
     const [image, setImage] = useState(null)
-    console.log("🚀 ~ file: createExerciseModal.js:11 ~ CreateExerciseModal ~ image:", image)
     const [imageLoading, setImageLoading] = useState(false);
     const [name, setName] = useState("")
-    console.log("🚀 ~ file: createExerciseModal.js:13 ~ CreateExerciseModal ~ name:", name)
     const [type, setType] = useState("")
-    console.log("🚀 ~ file: createExerciseModal.js:14 ~ CreateExerciseModal ~ type:", type)
     const [description, setDescription] = useState("")
     const [experience, setExperience] = useState("")
     const [muscles, setMuscles] = useState("")
@@ -30,8 +27,7 @@ export default function CreateExerciseModal() {
         formData.append("type", type);
         formData.append("experience", experience);
         formData.append("target_muscles", muscles);
-        // aws uploads can be a bit slow—displaying
-        // some sort of loading message is a good idea
+       
         setImageLoading(true);
         const data = await dispatch(thunkCreateExercise(formData));
         closeModal()
@@ -49,16 +45,16 @@ export default function CreateExerciseModal() {
             encType="multipart/form-data"
         >
             <label>
+            Name:
             <input type="text"
             onChange={(e) => setName(e.target.value)}>
             </input>
-            Name
             </label>
             <label>
+            Description:
             <textarea
             onChange={(e) => setDescription(e.target.value)}>
             </textarea>
-            Description
             </label>
             <fieldset>
                 <legend>Select an Exercise Type:</legend>
@@ -76,10 +72,10 @@ export default function CreateExerciseModal() {
                 </div>
             </fieldset>
             <label>
+            Muscles Targeted: 
             <input type="text"
             onChange={(e) => setMuscles(e.target.value)}>
             </input>
-            Muscles Targeted
             </label>
             <fieldset>
                 <legend>Select an Experience Level of the Exercise:</legend>
@@ -96,13 +92,20 @@ export default function CreateExerciseModal() {
                     <label for="Advanced">Advanced</label>
                 </div>
             </fieldset>
+            <label className="fileCreate">
             <input
+              className="hidden"
               type="file"
               accept="image/*"
               onChange={(e) => setImage(e.target.files[0])}
             />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            Upload
+            </label>
+            <div>{image == null ? "Choose Exercise Image" : image['name']}</div>
+            <button className="fileCreate" type="submit">Submit</button>
+            {imageLoading && (<div aria-busy="true" aria-describedby="progress-bar">
+        <progress id="progress-bar" aria-label="Content loading…"></progress>
+         </div>)}
         </form>
     </div>)
 }
