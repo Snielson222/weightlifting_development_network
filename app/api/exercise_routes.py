@@ -10,6 +10,11 @@ from datetime import date
 
 exercise_routes = Blueprint('exercise', __name__)
 
+@exercise_routes.route("/all")
+def get_all_exercises():
+    all_exercises = Exercise.query.all()
+    return [exercise.to_dict() for exercise in all_exercises]
+
 @exercise_routes.route("/new", methods=["POST"])
 @login_required
 def upload_image():
@@ -36,13 +41,13 @@ def upload_image():
                 type = form.data['type'],
                 description = form.data['description'],
                 image = image_url,
-                created_at = date.today()
+                created_at = date.today(),
+                owner_id = current_user.id
             )
 
             db.session.add(new_exercise)
             db.session.commit()
             return new_exercise.to_dict()
-
     else:
         print(form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401

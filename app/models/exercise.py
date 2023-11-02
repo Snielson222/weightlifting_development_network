@@ -21,7 +21,9 @@ class Exercise(db.Model):
             "id": self.id,
             "name": self.name,
             "type": self.type,
+            "image": self.image,
             "description": self.description,
+            "ownerId": self.owner_id,
             "createdAt": self.created_at
         }
         if self.exercise_review_id:
