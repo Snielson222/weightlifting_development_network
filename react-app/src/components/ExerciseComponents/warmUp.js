@@ -17,10 +17,13 @@ export default function WarmUp() {
     }, [dispatch])
 
     return(<div>
+        <h1>Warm Up Exercises</h1>
         {warmUpArr.map((exercise) => (
-            <NavLink to={`exercise/${exercise.id}`}>
-                <div title={`${exercise.name}`} key={exercise.id}><img id="mappedImage" src={`${exercise.image}`}></img>{exercise.name}</div>
-            </NavLink>
+             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
+             <div key={exercise.id}>{exercise.name}</div>
+             <div>{exercise.experience}</div>
+             <div>{exercise.targetMuscles}</div>
+         </NavLink>
         ))}
     </div>)
 }

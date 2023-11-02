@@ -13,6 +13,8 @@ class Exercise(db.Model):
     image = db.Column(db.String, nullable = False)
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable = False)
     created_at = db.Column(db.Date, nullable = False)
+    experience = db.Column(db.String, nullable = False)
+    target_muscles = db.Column(db.String, nullable = False)
     exercise_review_id = db.relationship("Review", back_populates = "review_exercise_id", cascade="all, delete-orphan")
     exercise_user_id = db.relationship("User", back_populates = "user_exercise_id")
 
@@ -24,6 +26,8 @@ class Exercise(db.Model):
             "image": self.image,
             "description": self.description,
             "ownerId": self.owner_id,
+            "targetMuscles":self.target_muscles,
+            "experience": self.experience,
             "createdAt": self.created_at
         }
         if self.exercise_review_id:

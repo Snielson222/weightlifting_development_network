@@ -8,5 +8,7 @@ class ExerciseForm(FlaskForm):
     name = StringField("Name of Exercise", validators=[DataRequired()])
     type = SelectField("type of Exercise", choices=["Upper Body", "Lower Body", "Warm Up"])
     description = TextAreaField("Description of Exercise", validators=[DataRequired()])
+    experience = SelectField("Experience level of exercise", choices=["Beginner", "Intermediate", "Advanced"])
+    target_muscles = StringField("Muscles Targeted By Exercise")
     image = FileField("Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
     submit = SubmitField("Create Post")

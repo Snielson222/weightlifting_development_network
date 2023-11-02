@@ -15,6 +15,8 @@ export default function CreateExerciseModal() {
     const [type, setType] = useState("")
     console.log("🚀 ~ file: createExerciseModal.js:14 ~ CreateExerciseModal ~ type:", type)
     const [description, setDescription] = useState("")
+    const [experience, setExperience] = useState("")
+    const [muscles, setMuscles] = useState("")
     const {closeModal} = useModal()
     const dispatch = useDispatch()
     const {push} = useHistory()
@@ -26,19 +28,23 @@ export default function CreateExerciseModal() {
         formData.append("name", name);
         formData.append("description", description);
         formData.append("type", type);
+        formData.append("experience", experience);
+        formData.append("target_muscles", muscles);
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
         const data = await dispatch(thunkCreateExercise(formData));
         closeModal()
-        return push("/");
+        return push("/user");
     }
     const ub = "Upper Body"
     const lb = "Lower Body"
     const wu = "Warm Up"
 
     return (<div>
+        <h3>Create an Exercise</h3>
         <form 
+            className="update-delete-form"
             onSubmit={handleSubmit}
             encType="multipart/form-data"
         >
@@ -67,6 +73,27 @@ export default function CreateExerciseModal() {
                 <div>
                     <input type="radio" id="Warm Up" name="exerciseType" value={wu} onChange={(e) => setType(e.target.value)}/>
                     <label for="Warm Up">Warm Up</label>
+                </div>
+            </fieldset>
+            <label>
+            <input type="text"
+            onChange={(e) => setMuscles(e.target.value)}>
+            </input>
+            Muscles Targeted
+            </label>
+            <fieldset>
+                <legend>Select an Experience Level of the Exercise:</legend>
+                <div>
+                    <input type="radio" id="Beginner" name="experience" value={"Beginner"} onChange={(e) => setExperience(e.target.value)}/>
+                    <label for="Beginner">Beginner</label>
+                </div>
+                <div>
+                    <input type="radio" id="Intermediate" name="experience" value={"Intermediate"} onChange={(e) => setExperience(e.target.value)}/>
+                    <label for="Intermediate">Intermediate</label>
+                </div>
+                <div>
+                    <input type="radio" id="Advanced" name="experience" value={"Advanced"} onChange={(e) => setExperience(e.target.value)}/>
+                    <label for="Advanced">Advanced</label>
                 </div>
             </fieldset>
             <input

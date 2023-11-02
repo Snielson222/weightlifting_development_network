@@ -16,9 +16,11 @@ export default function ExerciseShow() {
         dispatch(thunkGetAllExercises())
     }, [dispatch])
 
-    return(<div>
+    return(<div id="exerciseShow">
         <h1>{thisExercise?.name}</h1>
-        <img id="thisExerciseImage" src={thisExercise?.image}></img>
+        <h3>Recommended Experience Level: {thisExercise?.experience}</h3>
+        <img title={`${thisExercise?.name}`} id="thisExerciseImage" src={thisExercise?.image}></img>
+        <h4>Muscles Targeted: {thisExercise?.targetMuscles}</h4>
         <p>{thisExercise?.description}</p>
     </div>)
 }

@@ -9,6 +9,8 @@ def seed_exercises():
         description = "Great exercise for building strength and size in your chest and triceps, a classic!",
         image = "https://www.muscleandfitness.com/wp-content/uploads/2019/04/10-Exercises-Build-Muscle-Bench-Press.jpg?quality=86&strip=all",
         owner_id = 1,
+        experience = "Intermediate",
+        target_muscles = "Pectoral, Triceps",
         created_at = date.today()
     )
 
@@ -17,7 +19,9 @@ def seed_exercises():
         type = "Lower Body",
         description = "Great exercise for building strength and size in your quads, hamstrings, and glutes, a classic!",
         image = "https://images.ctfassets.net/3s5io6mnxfqz/34Npc5PKLKJi6HIYvFw9XI/3e45754912cf266e7401cb8074c63239/AdobeStock_386146138_2.jpeg",
-        owner_id = 3,
+        experience = "Advanced",
+        target_muscles = "Quads, Hamstrings, Glutes",
+        owner_id = 2,
         created_at = date.today()
     )
 
@@ -26,6 +30,8 @@ def seed_exercises():
         type = "Warm Up",
         description = "Great exercise for warming up! 5 minutes and you will be warm, loose, and ready to hit the weights",
         image = "https://static01.nyt.com/images/2022/11/08/multimedia/26WNT-ROWING-WORKOUT5-1-310a/26WNT-ROWING-WORKOUT5-1-310a-videoSixteenByNine3000.jpg",
+        experience = "Beginner",
+        target_muscles = "General Fitness",
         owner_id = 3,
         created_at = date.today()
     )
