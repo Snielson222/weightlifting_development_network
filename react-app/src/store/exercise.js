@@ -36,10 +36,11 @@ export const thunkCreateExercise = (form) => async (dispatch) => {
 };
 
 //UPDATE EXERCISE
-export const thunkUpdateExercise = (form, id) => async (dispatch) => {
+export const thunkUpdateExercise = (updatedExercise, id) => async (dispatch) => {
     const res = await fetch(`/api/exercise/${id}`, {
         method: "PUT",
-        body: form
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedExercise)
     });
     if (res.ok) {
        const data = await res.json();
@@ -53,7 +54,9 @@ export const thunkUpdateExercise = (form, id) => async (dispatch) => {
 
 //DELETE EXERCISE
 export const thunkDeleteExercise = (id) => async (dispatch) => {
-    const res = await fetch(`/api/exercise/${id}/delete`);
+    const res = await fetch(`/api/exercise/${id}/delete`, {
+        method:"DELETE"
+    });
     if (res.ok) {
        const data = await res.json();
        dispatch(actionDeleteExercise(id));

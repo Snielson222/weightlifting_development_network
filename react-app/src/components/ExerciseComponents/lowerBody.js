@@ -16,9 +16,12 @@ export default function LowerBody() {
     }, [dispatch])
 
     return(<div>
+        <h1>Lower Body Exercises</h1>
         {lowerBodyArr.map((exercise) => (
-            <NavLink to={`exercise/${exercise.id}`}>
-                <div title={`${exercise.name}`} key={exercise.id}><img id="mappedImage" src={`${exercise.image}`}></img>{exercise.name}</div>
+            <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
+                <div key={exercise.id}>{exercise.name}</div>
+                <div>{exercise.experience}</div>
+                <div>{exercise.targetMuscles}</div>
             </NavLink>
         ))}
     </div>)

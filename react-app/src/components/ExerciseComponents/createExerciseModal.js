@@ -8,13 +8,12 @@ import { useModal } from "../../context/Modal";
 
 export default function CreateExerciseModal() {
     const [image, setImage] = useState(null)
-    console.log("🚀 ~ file: createExerciseModal.js:11 ~ CreateExerciseModal ~ image:", image)
     const [imageLoading, setImageLoading] = useState(false);
     const [name, setName] = useState("")
-    console.log("🚀 ~ file: createExerciseModal.js:13 ~ CreateExerciseModal ~ name:", name)
     const [type, setType] = useState("")
-    console.log("🚀 ~ file: createExerciseModal.js:14 ~ CreateExerciseModal ~ type:", type)
     const [description, setDescription] = useState("")
+    const [experience, setExperience] = useState("")
+    const [muscles, setMuscles] = useState("")
     const {closeModal} = useModal()
     const dispatch = useDispatch()
     const {push} = useHistory()
@@ -26,33 +25,36 @@ export default function CreateExerciseModal() {
         formData.append("name", name);
         formData.append("description", description);
         formData.append("type", type);
-        // aws uploads can be a bit slow—displaying
-        // some sort of loading message is a good idea
+        formData.append("experience", experience);
+        formData.append("target_muscles", muscles);
+       
         setImageLoading(true);
         const data = await dispatch(thunkCreateExercise(formData));
         closeModal()
-        return push("/");
+        return push("/user");
     }
     const ub = "Upper Body"
     const lb = "Lower Body"
     const wu = "Warm Up"
 
     return (<div>
+        <h3>Create an Exercise</h3>
         <form 
+            className="update-delete-form"
             onSubmit={handleSubmit}
             encType="multipart/form-data"
         >
             <label>
+            Name:
             <input type="text"
             onChange={(e) => setName(e.target.value)}>
             </input>
-            Name
             </label>
             <label>
+            Description:
             <textarea
             onChange={(e) => setDescription(e.target.value)}>
             </textarea>
-            Description
             </label>
             <fieldset>
                 <legend>Select an Exercise Type:</legend>
@@ -69,13 +71,41 @@ export default function CreateExerciseModal() {
                     <label for="Warm Up">Warm Up</label>
                 </div>
             </fieldset>
+            <label>
+            Muscles Targeted: 
+            <input type="text"
+            onChange={(e) => setMuscles(e.target.value)}>
+            </input>
+            </label>
+            <fieldset>
+                <legend>Select an Experience Level of the Exercise:</legend>
+                <div>
+                    <input type="radio" id="Beginner" name="experience" value={"Beginner"} onChange={(e) => setExperience(e.target.value)}/>
+                    <label for="Beginner">Beginner</label>
+                </div>
+                <div>
+                    <input type="radio" id="Intermediate" name="experience" value={"Intermediate"} onChange={(e) => setExperience(e.target.value)}/>
+                    <label for="Intermediate">Intermediate</label>
+                </div>
+                <div>
+                    <input type="radio" id="Advanced" name="experience" value={"Advanced"} onChange={(e) => setExperience(e.target.value)}/>
+                    <label for="Advanced">Advanced</label>
+                </div>
+            </fieldset>
+            <label className="fileCreate">
             <input
+              className="hidden"
               type="file"
               accept="image/*"
               onChange={(e) => setImage(e.target.files[0])}
             />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            Upload
+            </label>
+            <div>{image == null ? "Choose Exercise Image" : image['name']}</div>
+            <button className="fileCreate" type="submit">Submit</button>
+            {imageLoading && (<div aria-busy="true" aria-describedby="progress-bar">
+        <progress id="progress-bar" aria-label="Content loading…"></progress>
+         </div>)}
         </form>
     </div>)
 }

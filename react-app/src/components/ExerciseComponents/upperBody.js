@@ -16,10 +16,13 @@ export default function UpperBody() {
     }, [dispatch])
 
     return (<div>
+        <h1>Upper Body Exercises</h1>
         {upperBodyArr.map((exercise) => (
-            <NavLink to={`exercise/${exercise.id}`}>
-                <div title={`${exercise.name}`} key={exercise.id}><img id="mappedImage" src={`${exercise.image}`}></img>{exercise.name}</div>
-            </NavLink>
+             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
+             <div key={exercise.id}>{exercise.name}</div>
+             <div>{exercise.experience}</div>
+             <div>{exercise.targetMuscles}</div>
+         </NavLink>
         ))}
     </div>)
 }
