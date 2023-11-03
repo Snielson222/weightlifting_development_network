@@ -42,6 +42,7 @@ export default function CreateReviewModal({ id }) {
   color2={'#ffd700'} />
   <label>Description</label>
         <textarea 
+        className="textArea"
         value={description}
         onChange={e => setDescription(e.target.value)}/>
         <button className="fileCreate" type="submit">Submit</button>

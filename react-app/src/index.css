@@ -79,8 +79,9 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 .update-delete-form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
 }
 
 .exerciseNav {
@@ -124,10 +125,15 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 .centerMe {
     display: flex;
     justify-content: center;
     padding: 10px;
+}
+
+.textArea {
+    padding: 15px;
 }

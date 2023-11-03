@@ -49,28 +49,31 @@ export default function UpdateExerciseModal({id}) {
     }
 
     return (<div>
+        <div className="centerMe">
         <h3>Update Exercise</h3>
+        </div>
         <form 
             className="update-delete-form"
             onSubmit={handleSubmit}
             encType="multipart/form-data"
         >
             <label>
-            Name:
+            Name
+            </label>
             <input type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}>
             </input>
-            </label>
             <label>
-            Description:
+            Description
+            </label>
             <textarea
+            className="textArea"
             value={description}
             onChange={(e) => setDescription(e.target.value)}>
             </textarea>
-            </label>
             <fieldset>
-                <legend>Select an Exercise Type:</legend>
+                <legend>Exercise Type</legend>
                 <div>
                     <input checked={type === 'Upper Body'} type="radio" id="Upper Body" name="exerciseType" value="Upper Body" onChange={(e) => setType(e.target.value)}/>
                     <label for="Upper Body">Upper Body</label>
@@ -85,14 +88,14 @@ export default function UpdateExerciseModal({id}) {
                 </div>
             </fieldset>
             <label>
-            Muscles Targeted: 
+            Muscles Targeted
+            </label>
             <input type="text"
             value={muscles}
             onChange={(e) => setMuscles(e.target.value)}>
             </input>
-            </label>
             <fieldset>
-                <legend>Select an Experience Level of the Exercise:</legend>
+                <legend>Exercise Difficulty</legend>
                 <div>
                     <input checked={experience === 'Beginner'} type="radio" id="Beginner" name="experience" value={"Beginner"} onChange={(e) => setExperience(e.target.value)}/>
                     <label for="Beginner">Beginner</label>
