@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllExercises } from "../../store/exercise";
 import { NavLink, useParams} from "react-router-dom/cjs/react-router-dom.min";
+import OpenModalButton from "../OpenModalButton";
+import CreateExerciseModal from "../ExerciseComponents/createExerciseModal";
 
 
 export default function UserPage() {
@@ -18,6 +20,12 @@ export default function UserPage() {
     }, [dispatch])
 
     return(<div>
+        <div className="centerMe">
+        <OpenModalButton
+              buttonText="Create an Exercise"
+              modalComponent={<CreateExerciseModal />}
+            />
+        </div>
         <h1>My Posted Exercises</h1>
         {userExercises.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>

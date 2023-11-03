@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllExercises } from "../../store/exercise";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-export default function LowerBody() {
+export default function Intermediate() {
     const dispatch = useDispatch()
     const allExercises = useSelector((state) => state.exercises)
-    const lowerBody = Object.values(allExercises).filter((exercise) => exercise.type == "Lower Body")
+    const intermediate = Object.values(allExercises).filter((exercise) => exercise.experience == "Intermediate")
     
-    const lowerBodyArr = [...lowerBody]
+    const intermediateArr = [...intermediate]
 
     useEffect(() => {
         dispatch(thunkGetAllExercises())
@@ -17,7 +17,7 @@ export default function LowerBody() {
 
     return(<div>
         <h1>Lower Body Exercises</h1>
-        {lowerBodyArr.map((exercise) => (
+        {intermediateArr.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
                 <div key={exercise.id}>{exercise.name}</div>
                 <div>{exercise.experience}</div>

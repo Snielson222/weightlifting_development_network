@@ -16,11 +16,7 @@ function Navigation({ isLoaded }){
 			<div id="logoNav">
 				<NavLink exact to="/"><img src={logo1} alt='logo' id='logo'></img></NavLink>
 				<ExerciseButton />
-				<OpenModalButton
-              buttonText="Create an Exercise"
-              modalComponent={<CreateExerciseModal />}
-            />
-				<NavLink exact to="/user"><button>User Page</button></NavLink>
+				<NavLink  exact to="/user"><button className="fileCreate">User Page</button></NavLink>
 			</div>
 			{isLoaded && (
 				<div>

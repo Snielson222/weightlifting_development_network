@@ -39,18 +39,18 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="fileCreate" onClick={openMenu}>
         <i className="fa fa-bars" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
-          </>
+          <div id="exerciseButtonMenu">
+            <div>{user.username}</div>
+            <div>{user.email}</div>
+            <div>
+              <button className="fileCreate" onClick={handleLogout}>Log Out</button>
+            </div>
+          </div>
         ) : (
           <>
             <OpenModalButton

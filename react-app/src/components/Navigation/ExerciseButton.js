@@ -39,7 +39,7 @@ export default function ExerciseButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (<div>
-      <button onClick={openMenu}>
+      <button className="fileCreate" onClick={openMenu}>
         Exercises
       </button>
       <ul className={ulClassName} ref={ulRef}>
@@ -61,6 +61,15 @@ export default function ExerciseButton({ user }) {
             </div>
             <div>
             <NavLink className="exerciseLink" exact to="/warmup">Warm Ups</NavLink>
+            </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/beginner">Beginner</NavLink>
+            </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/intermediate">Intermediate</NavLink>
+            </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/advanced">Advanced</NavLink>
             </div>
           </div>
         )}
