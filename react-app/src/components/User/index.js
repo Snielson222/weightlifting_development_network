@@ -34,5 +34,6 @@ export default function UserPage() {
             <div>{exercise.targetMuscles}</div>
         </NavLink>
         ))}
+        <h1>My Favorite Exercises</h1>
     </div>)
 }
