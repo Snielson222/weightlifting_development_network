@@ -13,7 +13,7 @@ export default function DeleteReviewModal({reviewId}) {
         return closeModal()
     }
     return(<div>
-        <button onClick={deleteFunction}>Yes Delete Review</button>
-        <button onClick={closeModal}>No Don't Delete</button>
+        <button className="fileCreate" onClick={deleteFunction}>Yes Delete Review</button>
+        <button className="fileCreate" onClick={closeModal}>No Don't Delete</button>
     </div>)
 }

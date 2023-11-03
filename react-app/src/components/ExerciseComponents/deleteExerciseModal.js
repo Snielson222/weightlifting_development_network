@@ -16,7 +16,7 @@ export default function DeleteExerciseModal({id}) {
         return push('/user')
     }
     return(<div>
-        <button onClick={deleteFunction}>Yes Delete Exercise</button>
-        <button onClick={closeModal}>No Don't Delete</button>
+        <button className="fileCreate" onClick={deleteFunction}>Yes (Delete Exercise)</button>
+        <button className="fileCreate" onClick={closeModal}>No (Don't Delete)</button>
     </div>)
 }

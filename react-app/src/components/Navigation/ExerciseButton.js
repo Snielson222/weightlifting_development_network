@@ -39,7 +39,7 @@ export default function ExerciseButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (<div>
-      <button onClick={openMenu}>
+      <button className="fileCreate" onClick={openMenu}>
         Exercises
       </button>
       <ul className={ulClassName} ref={ulRef}>

@@ -85,3 +85,12 @@ def update_exercise(id):
         return exercise_to_update.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    
+@exercise_routes.route('/search/<search>')
+def search_exercises(search):
+    searched_exercises = Exercise.query.filter(Exercise.name.ilike(f'%{search}%'))
+
+    if search_exercises:
+        return [exercise.to_dict() for exercise in searched_exercises]
+    else:
+        return {"errors": "No Exercise With That Name in The Database"}

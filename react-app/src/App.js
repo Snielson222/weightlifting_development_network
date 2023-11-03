@@ -12,7 +12,7 @@ import LowerBody from "./components/ExerciseComponents/lowerBody";
 import WarmUp from "./components/ExerciseComponents/warmUp";
 import ExerciseShow from "./components/ExerciseComponents/exerciseShow";
 import UserPage from "./components/User";
-
+import SearchPage from "./components/SearchPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +49,9 @@ function App() {
           </Route>
           <Route exact path="/user">
             <UserPage />
+          </Route>
+          <Route exact path="/search">
+            <SearchPage />
           </Route>
         </Switch>
       )}
