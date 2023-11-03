@@ -13,6 +13,9 @@ import WarmUp from "./components/ExerciseComponents/warmUp";
 import ExerciseShow from "./components/ExerciseComponents/exerciseShow";
 import UserPage from "./components/User";
 import SearchPage from "./components/SearchPage";
+import Beginner from "./components/ExerciseComponents/beginner";
+import Intermediate from "./components/ExerciseComponents/intermediate";
+import Advanced from "./components/ExerciseComponents/advanced";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +52,15 @@ function App() {
           </Route>
           <Route exact path="/user">
             <UserPage />
+          </Route>
+          <Route exact path="/beginner">
+            <Beginner />
+          </Route>
+          <Route exact path="/intermediate">
+            <Intermediate />
+          </Route>
+          <Route exact path="/advanced">
+            <Advanced />
           </Route>
           <Route exact path="/search">
             <SearchPage />

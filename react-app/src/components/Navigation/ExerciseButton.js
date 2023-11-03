@@ -62,6 +62,15 @@ export default function ExerciseButton({ user }) {
             <div>
             <NavLink className="exerciseLink" exact to="/warmup">Warm Ups</NavLink>
             </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/beginner">Beginner</NavLink>
+            </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/intermediate">Intermediate</NavLink>
+            </div>
+            <div>
+            <NavLink className="exerciseLink" exact to="/advanced">Advanced</NavLink>
+            </div>
           </div>
         )}
       </ul>
