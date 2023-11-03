@@ -16,7 +16,7 @@ export default function Advanced() {
     }, [dispatch])
 
     return(<div>
-        <h1>Lower Body Exercises</h1>
+        <h1>Advanced Exercises</h1>
         {advancedArr.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
                 <div key={exercise.id}>{exercise.name}</div>

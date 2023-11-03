@@ -142,3 +142,18 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 .textArea {
     padding: 15px;
 }
+
+#filled {
+    color: red;
+}
+
+#unfilled {
+    color: white;
+}
+
+#favoriteButton {
+    background-color: black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 30px;
+}

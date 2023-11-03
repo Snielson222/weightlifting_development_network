@@ -12,6 +12,7 @@ import UpdateExerciseModal from "./updateExerciseModel";
 import CreateReviewModal from "../ReviewComponents/createReviewModal";
 import UpdateReviewModal from "../ReviewComponents/updateReviewModal";
 import DeleteReviewModal from "../ReviewComponents/deleteReviewModal";
+import FavoriteAnExercise from "../favorites";
 
 
 export default function ExerciseShow() {
@@ -43,6 +44,7 @@ export default function ExerciseShow() {
         <h1>{thisExercise?.name}</h1>
         <h3>Recommended Experience Level: {thisExercise?.experience}</h3>
         <img title={`${thisExercise?.name}`} id="thisExerciseImage" src={thisExercise?.image}></img>
+        <FavoriteAnExercise favoriteId={id}/>
         <div className={thisExercise?.ownerId !== userId ? "hidden" : "notHidden"}>
         <OpenModalButton 
             buttonText="Delete Exercise"

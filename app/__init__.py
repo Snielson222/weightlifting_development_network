@@ -12,6 +12,7 @@ from .config import Config
 from .api.exercise_routes import exercise_routes
 from .api.workout_routes import workout_routes
 from .api.review_routes import review_routes
+from .api.favorite_routes import favorite_routes
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
@@ -34,6 +35,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(exercise_routes, url_prefix='/api/exercise')
 app.register_blueprint(workout_routes, url_prefix='/api/workout')
 app.register_blueprint(review_routes, url_prefix='/api/review')
+app.register_blueprint(favorite_routes, url_prefix='/api/favorite')
 db.init_app(app)
 Migrate(app, db)
 
