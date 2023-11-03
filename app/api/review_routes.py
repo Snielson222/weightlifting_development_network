@@ -35,3 +35,33 @@ def create_new_review():
         return new_review.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    
+@review_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_review(id):
+    review_to_update = Review.query.get(id)
+
+    form = ReviewForm()
+    data = form.data
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        review_to_update.rating = data['rating']
+        review_to_update.description = data['description']
+        review_to_update.exercise_id = data['exercise_id']
+        db.session.commit()
+        return review_to_update.to_dict()
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    
+@review_routes.route('/<int:id>/delete', methods=['DELETE'])
+def delete_review(id):
+    review_to_delete = Review.query.get(id)
+
+    if review_to_delete:
+        db.session.delete(review_to_delete)
+        db.session.commit()
+        return review_to_delete.to_dict()
+    else:
+        return {"error": "No Review Found"}

@@ -55,7 +55,9 @@ export const thunkUpdateReview = (form, id) => async (dispatch) => {
 
 //DELETE REVIEW
 export const thunkDeleteReview = (id) => async (dispatch) => {
-    const res = await fetch(`/api/review/${id}/delete`);
+    const res = await fetch(`/api/review/${id}/delete`, {
+        method: 'DELETE'
+    });
     if (res.ok) {
        const data = await res.json();
        dispatch(actionDeleteReview(id));

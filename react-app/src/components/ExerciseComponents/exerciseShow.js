@@ -10,6 +10,8 @@ import OpenModalButton from "../OpenModalButton";
 import DeleteExerciseModal from "./deleteExerciseModal";
 import UpdateExerciseModal from "./updateExerciseModel";
 import CreateReviewModal from "../ReviewComponents/createReviewModal";
+import UpdateReviewModal from "../ReviewComponents/updateReviewModal";
+import DeleteReviewModal from "../ReviewComponents/deleteReviewModal";
 
 
 export default function ExerciseShow() {
@@ -68,6 +70,16 @@ export default function ExerciseShow() {
             edit={false}
             size={24}
             color2={'#ffd700'} />
+            <div className={review?.ownerId !== userId ? "hidden" : "notHidden"}>
+            <OpenModalButton 
+            buttonText="Update"
+            modalComponent={<UpdateReviewModal reviewId={review.id} />}
+            />
+            <OpenModalButton 
+            buttonText="Delete"
+            modalComponent={<DeleteReviewModal reviewId={review.id} />}
+            />
+            </div>
             </>
         ))}
     </div>)

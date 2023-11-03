@@ -1,18 +1,24 @@
 import React from "react";
 import ReactStars from 'react-stars'
-import { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { thunkCreateReview } from "../../store/review";
-import { NavLink, useParams, useHistory} from "react-router-dom/cjs/react-router-dom.min";
+import { useState, useEffect} from "react";
+import { useDispatch, useSelector} from "react-redux";
+import { thunkUpdateReview } from "../../store/review";
+import { useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 
-export default function CreateReviewModal({ id }) {
+export default function UpdateReviewModal({ reviewId }) {
+    console.log("🚀 ~ file: updateReviewModal.js:10 ~ UpdateReviewModal ~ reviewId:", reviewId)
+    const reviews = useSelector((state) => state.reviews)
+    const thisReviewArr = Object.values(reviews).filter((review) => review.id == reviewId)
+    const thisReview = thisReviewArr[0]  
+
     const {closeModal} = useModal()
     const dispatch = useDispatch()
-    const {push} = useHistory()
-    const [description, setDescription] = useState('')
-    const [rating, setRating] = useState(0)
-    
+    const [description, setDescription] = useState(thisReview.description)
+    const [rating, setRating] = useState(thisReview.rating)
+
+
+
     const ratingChanged = (newRating) => {
         setRating(newRating)
       }
@@ -23,10 +29,9 @@ export default function CreateReviewModal({ id }) {
         const review = {
             "rating": rating,
             "description": description,
-            "exercise_id": id
+            "exercise_id": thisReview.exerciseId
         }
-        const data = await dispatch(thunkCreateReview(review))
-        
+        const data = await dispatch(thunkUpdateReview(review, reviewId))
         return closeModal()
 
     }
