@@ -1,14 +1,18 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { thunkSearchExercises } from "../../store/exercise";
+import { thunkSearchExercises, thunkGetAllExercises } from "../../store/exercise";
 
 export default function HomePage() {
     const dispatch = useDispatch()
     const { push } = useHistory()
     const [search, setSearch] = useState("")
     const [errors, setErrors] = useState('')
+
+    useEffect(() => {
+        dispatch(thunkGetAllExercises())
+    }, [dispatch])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -19,8 +23,6 @@ export default function HomePage() {
         } else {
             setErrors(data.errors)
         }
-
-
     }
     return(<div>
         <div id="spinningHome">

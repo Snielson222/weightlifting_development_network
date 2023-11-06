@@ -9,6 +9,7 @@ export default function SearchPage() {
 
     return (<div>
         <h1>Exercises That Match Your Search</h1>
+        <h3>{Object.values(searchedExercises).length ? "" : "Sorry No Exercises Match Your Search."}</h3>
         {Object.values(searchedExercises).map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
             <div key={exercise.id}>{exercise.name}</div>
