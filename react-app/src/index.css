@@ -37,8 +37,18 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 #featureContainer {
     height: 150px;
     border: 1px grey solid;
-    width: 45%;
+    width: 49%;
     border-radius: 10px;
+    margin: 10px;
+    
+}
+
+.featured {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    padding-left: 20px;
     margin: 10px;
 }
 
