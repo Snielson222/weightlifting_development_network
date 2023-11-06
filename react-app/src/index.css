@@ -60,9 +60,8 @@ body {
     padding-right: 400px;
     padding-top: 20px;
     padding-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }
 
 .featured {
@@ -194,14 +193,14 @@ body {
 }
 
 #searchBar {
-    width: 300px;
+    width: 350px;
 }
 
 #search {
     padding-top: 50px;
 }
 
-@keyframes spin {
+@keyframes around {
     from {
         transform:rotate(0deg);
     }
@@ -211,8 +210,13 @@ body {
 }
 
 .weightPlate {
-    animation-name: spin;
+    animation-name: around;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-duration: 25000ms;
 }
+
+.smallFont {
+    font-size:xx-small;
+}
+

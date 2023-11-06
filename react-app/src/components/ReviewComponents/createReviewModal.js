@@ -55,13 +55,13 @@ export default function CreateReviewModal({ id }) {
   value={rating}
   size={24}
   color2={'#ffd700'} />
-  <p className="errors">{errors.rating}</p>
+  <p className="errors smallFont">{errors.rating}</p>
   <label>Description</label>
         <textarea 
         className="textArea"
         value={description}
         onChange={e => setDescription(e.target.value)}/>
-        <p className="errors">{errors.description}</p>
+        <p className="errors smallFont">{errors.description}</p>
         <button disabled={Object.values(errors).length > 0 || rating == 0} className="fileCreate" type="submit">Submit</button>
         </form>
     </div>)

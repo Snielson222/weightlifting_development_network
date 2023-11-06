@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
@@ -14,6 +14,8 @@ function SignupFormModal() {
 	const [name, setName] = useState("")
 	const [experience, setExperience] = useState("")
 	const { closeModal } = useModal();
+	const [submitted, setSubmitted] = useState(false)
+	const [e, setE] = useState({})
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -30,6 +32,29 @@ function SignupFormModal() {
 			]);
 		}
 	};
+
+	useEffect(() => {
+		const obj = {}
+			if (name.length < 6) {
+				obj.name = "Name Must Be Over 6 Characters."
+			}
+			if (!email.includes('@') || !email.includes(".")) {
+				obj.email = "Email Must Be Valid."
+			}
+			if (isNaN(experience) || experience < 0) {
+				obj.experience = "Years of Workout Experience Must Be a Positive Number."
+			}
+			if (username.length < 6) {
+				obj.username = "Username Must Be Over 6 Characters."
+			}
+			if (password.length < 6) {
+				obj.password = "Password Must Be Over 6 Characters."
+			}
+			if (confirmPassword.length < 6) {
+				obj.confirmPassword = "Confirm Password Must Be Over 6 Characters."
+			}
+			setE(obj)
+	}, [name, email, experience, password, username, confirmPassword])
 
 	return (
 		<>
@@ -50,6 +75,7 @@ function SignupFormModal() {
 						onChange={(e) => setName(e.target.value)}
 						required
 					/>
+					<p className="smallFont">{e.name}</p>
 				<label>
 					Years of Workout Experience
 					</label>
@@ -59,6 +85,7 @@ function SignupFormModal() {
 						onChange={(e) => setExperience(e.target.value)}
 						required
 					/>
+					<p className="smallFont">{e.experience}</p>
 				<label>
 					Email
 					</label>
@@ -68,6 +95,7 @@ function SignupFormModal() {
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
+					<p className="smallFont">{e.email}</p>
 				<label>
 					Username
 					</label>
@@ -77,6 +105,7 @@ function SignupFormModal() {
 						onChange={(e) => setUsername(e.target.value)}
 						required
 					/>
+					<p className="smallFont">{e.username}</p>
 				<label>
 					Password
 					</label>
@@ -86,6 +115,7 @@ function SignupFormModal() {
 						onChange={(e) => setPassword(e.target.value)}
 						required
 					/>
+					<p className="smallFont">{e.password}</p>
 				<label>
 					Confirm Password
 					</label>
@@ -95,8 +125,11 @@ function SignupFormModal() {
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
+					<p className="smallFont">{e.confirmPassword}</p>
 				<button 
 				className="fileCreate"
+				disabled={Object.values(errors) > 0 || Object.values(e) > 0}
+				onClick={() => setSubmitted(true)}
 				type="submit">Sign Up</button>
 			</form>
 		</>
