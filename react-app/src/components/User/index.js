@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllExercises } from "../../store/exercise";
+import { thunkGetAllFavorites } from "../../store/favorite";
 import { NavLink, useParams} from "react-router-dom/cjs/react-router-dom.min";
 import OpenModalButton from "../OpenModalButton";
 import CreateExerciseModal from "../ExerciseComponents/createExerciseModal";
@@ -14,9 +15,23 @@ export default function UserPage() {
     const userId = user.id
     const userExerciseArr = Object.values(allExercises).filter((exercise) => exercise.ownerId == userId)
     const userExercises = [...userExerciseArr]
+    const allFavorites = useSelector((state) => state.favorites)
+    const userFavorites = Object.values(allFavorites).filter((favorite) => favorite.ownerId == userId)
+
+    const favoriteExercises = []
     
+    userFavorites.forEach((favorite) => {
+        Object.values(allExercises).forEach((exercise) => {
+            if (favorite.exerciseId == exercise.id) {
+                favoriteExercises.push(exercise)
+            }
+        })
+    })
+    console.log("🚀 ~ file: index.js:22 ~ UserPage ~ favoriteExercises:", favoriteExercises)
+
     useEffect(() => {
         dispatch(thunkGetAllExercises())
+        dispatch(thunkGetAllFavorites())
     }, [dispatch])
 
     return(<div>
@@ -35,5 +50,12 @@ export default function UserPage() {
         </NavLink>
         ))}
         <h1>My Favorite Exercises</h1>
+        {favoriteExercises.map((exercise) => (
+            <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
+            <div key={exercise.id}>{exercise.name}</div>
+            <div>{exercise.experience}</div>
+            <div>{exercise.targetMuscles}</div>
+        </NavLink>
+        ))}
     </div>)
 }

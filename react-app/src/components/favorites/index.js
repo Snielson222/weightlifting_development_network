@@ -8,8 +8,13 @@ export default function FavoriteAnExercise({ favoriteId }) {
     const dispatch = useDispatch()
     const [favorite, setFavorite] = useState(false)
 
+    const user = useSelector((state) => state.session.user)
+    const userId = user.id
+
     const favorites = useSelector((state) => state.favorites)
     const thisExerciseFavorite = Object.values(favorites).filter((favorite) => favorite.exerciseId == favoriteId)
+    const userFavorites = thisExerciseFavorite.filter((favorite) => favorite.ownerId == userId)
+    console.log("🚀 ~ file: index.js:13 ~ FavoriteAnExercise ~ thisExerciseFavorite:", thisExerciseFavorite)
 
     useEffect(() => {
         dispatch(thunkGetAllFavorites())
@@ -28,11 +33,11 @@ export default function FavoriteAnExercise({ favoriteId }) {
     return (<div>
         <button
         id="favoriteButton"
-        onClick={thisExerciseFavorite.length ? deleteFavorite : createFavorite}
+        onClick={userFavorites.length ? deleteFavorite : createFavorite}
         >
             <i class="fa fa-2x fa-heart" 
             aria-hidden="true"
-            id={thisExerciseFavorite.length ? "filled" : "unfilled"}></i>
+            id={userFavorites.length > 0 ? "filled" : "unfilled"}></i>
         </button>
     </div>)
 }

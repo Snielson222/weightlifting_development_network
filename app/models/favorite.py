@@ -18,5 +18,6 @@ class Favorite(db.Model):
             "id": self.id,
             "ownerId": self.owner_id,
             "exerciseId": self.exercise_id,
-            "createdAt": self.created_at
+            "createdAt": self.created_at,
         }
+            
