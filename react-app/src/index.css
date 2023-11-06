@@ -47,7 +47,7 @@ body {
 #featureContainer {
     height: 150px;
     border: 1px grey solid;
-    width: 49%;
+    width: 50%;
     border-radius: 10px;
     margin: 10px;
     padding: 5px;
@@ -130,6 +130,8 @@ body {
     cursor: pointer;
     padding: 10px;
     border: 1px grey solid;
+    border-radius: 10px;
+    gap: 5px;
 }
 
 #exerciseShow {
@@ -212,5 +214,5 @@ body {
     animation-name: spin;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-duration: 10000ms;
+    animation-duration: 25000ms;
 }

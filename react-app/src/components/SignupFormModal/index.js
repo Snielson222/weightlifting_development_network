@@ -33,8 +33,9 @@ function SignupFormModal() {
 
 	return (
 		<>
-			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+			<h1 className="centerMe">Sign Up</h1>
+			<form onSubmit={handleSubmit}
+			className="update-delete-form">
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
@@ -42,59 +43,61 @@ function SignupFormModal() {
 				</ul>
 				<label>
 					Name
+					</label>
 					<input
 						type="text"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 						required
 					/>
-				</label>
 				<label>
-					Number of Years of Workout Experience
+					Years of Workout Experience
+					</label>
 					<input
 						type="text"
 						value={experience}
 						onChange={(e) => setExperience(e.target.value)}
 						required
 					/>
-				</label>
 				<label>
 					Email
+					</label>
 					<input
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
-				</label>
 				<label>
 					Username
+					</label>
 					<input
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
 					/>
-				</label>
 				<label>
 					Password
+					</label>
 					<input
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
 					/>
-				</label>
 				<label>
 					Confirm Password
+					</label>
 					<input
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
-				</label>
-				<button type="submit">Sign Up</button>
+				<button 
+				className="fileCreate"
+				type="submit">Sign Up</button>
 			</form>
 		</>
 	);
