@@ -43,22 +43,27 @@ export default function HomePage() {
     }
     return(<div>
         <div id="spinningHome">
+            <div>
         <h1>Exercises for Enthusiasts,</h1>
         <h1>by Enthusiasts_</h1>
         <h4>Documenting exercises, including Upper Body, Lower Body, and Warm Ups, since 2023</h4>
-        </div>
         <div id="search">
             <form onSubmit={handleSubmit}>
                 <input
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 className="fileCreate"
+                id="searchBar"
                 type="search"
-                placeholder="Search for an Exercise" />
+                placeholder="Search for an Exercise By Name" />
                 <button className="fileCreate" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
             <p>{errors}</p>
         </div>
+            </div>
+        <img className="weightPlate" src="https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png" alt="weightPlate" />
+        </div>
+        <div  id="homePageId">
             <h4>Featured Exercises</h4>
         <div id="featuredExercises">
             <div id="featureContainer">
@@ -112,6 +117,7 @@ export default function HomePage() {
                     <p>{sortedByDateExercises[3]?.description}</p>
                 </NavLink>
             </div>
+        </div>
         </div>
         </div>)
 }

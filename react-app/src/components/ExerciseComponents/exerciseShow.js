@@ -57,13 +57,14 @@ export default function ExerciseShow() {
         </div>
         <h4>Muscles Targeted: {thisExercise?.targetMuscles}</h4>
         <p>{thisExercise?.description}</p>
-        <div>{reviewArr.length ? "Reviews" : "Be the First To Post a Review"}</div>
-        <div>
+        <div className={userId ? "" : "hidden"}>
         <OpenModalButton 
             buttonText="Review This Exercise"
             modalComponent={<CreateReviewModal id={id} />}
             />
         </div>
+        <h2>{reviewArr.length ? "Reviews" : "Be the First To Post a Review"}</h2>
+        <br></br>
         {reviewArr?.map((review) => (
             <>
             <div key={review.id}>{review.description}</div>

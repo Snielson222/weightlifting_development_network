@@ -9,7 +9,7 @@ export default function FavoriteAnExercise({ favoriteId }) {
     const [favorite, setFavorite] = useState(false)
 
     const user = useSelector((state) => state.session.user)
-    const userId = user.id
+    const userId = user?.id
 
     const favorites = useSelector((state) => state.favorites)
     const thisExerciseFavorite = Object.values(favorites).filter((favorite) => favorite.exerciseId == favoriteId)
@@ -32,6 +32,7 @@ export default function FavoriteAnExercise({ favoriteId }) {
 
     return (<div>
         <button
+        className={userId ? "" : "hidden"}
         id="favoriteButton"
         onClick={userFavorites.length ? deleteFavorite : createFavorite}
         >

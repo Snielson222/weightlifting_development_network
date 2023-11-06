@@ -16,6 +16,7 @@ export default function UpdateReviewModal({ reviewId }) {
     const dispatch = useDispatch()
     const [description, setDescription] = useState(thisReview.description)
     const [rating, setRating] = useState(thisReview.rating)
+    const [errors, setErrors] = useState({})
 
 
 
@@ -36,6 +37,19 @@ export default function UpdateReviewModal({ reviewId }) {
 
     }
 
+    useEffect(() => {
+        const obj = {}
+
+        if (description.length < 12) {
+            obj.description = "Review must be 12 or more characters"
+        }
+        if (rating == 0) {
+            obj.rating = "Rating Must be between 1 and 5 stars."
+        }
+
+        setErrors(obj)
+    }, [description, rating])
+
     return (<div>
         <form onSubmit={handleSubmit} className="createReviewForm">
         <ReactStars
@@ -45,11 +59,13 @@ export default function UpdateReviewModal({ reviewId }) {
   value={rating}
   size={24}
   color2={'#ffd700'} />
+  <p>{errors.rating}</p>
   <label>Description</label>
         <textarea 
         value={description}
         onChange={e => setDescription(e.target.value)}/>
-        <button className="fileCreate" type="submit">Submit</button>
+         <p>{errors.description}</p>
+        <button disabled={Object.values(errors).length > 0 || rating == 0} className="fileCreate" type="submit">Submit</button>
         </form>
     </div>)
 }
