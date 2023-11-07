@@ -9,7 +9,7 @@ import { useModal } from "../../context/Modal";
 export default function CreateReviewModal({ id }) {
     const {closeModal} = useModal()
     const dispatch = useDispatch()
-    const {push} = useHistory()
+
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState(0)
     const [errors, setErrors] = useState({})

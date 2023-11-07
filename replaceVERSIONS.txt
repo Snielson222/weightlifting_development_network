@@ -24,7 +24,7 @@ def upgrade():
 
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-    
+
     op.create_table('exercises',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
@@ -70,6 +70,8 @@ def upgrade():
     if environment == "production":
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
+
+
 
 
 def downgrade():
