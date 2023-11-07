@@ -30,6 +30,8 @@ export default function ExerciseShow() {
     const thisExerciseReviews = Object.values(allReviews).filter((review) => review.exerciseId == id)
     const reviewArr = [...thisExerciseReviews]
 
+    const userReviews = reviewArr.filter((review) => review.ownerId == userId)
+
     const ratingChanged = (newRating) => {
         console.log(newRating)
       }
@@ -57,13 +59,13 @@ export default function ExerciseShow() {
         </div>
         <h4>Muscles Targeted: {thisExercise?.targetMuscles}</h4>
         <p>{thisExercise?.description}</p>
-        <div className={userId ? "" : "hidden"}>
+        <div className={!userReviews.length && userId && userId !== thisExercise?.ownerId ? "centerMe" : "hidden"}>
         <OpenModalButton 
             buttonText="Review This Exercise"
             modalComponent={<CreateReviewModal id={id} />}
             />
-        </div>
         <h2>{reviewArr.length ? "Reviews" : "Be the First To Post a Review"}</h2>
+        </div>
         {reviewArr?.map((review) => (
             <div id="review" key={review.id}>
             <ReactStars
