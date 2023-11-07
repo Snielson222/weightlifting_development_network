@@ -2,8 +2,8 @@ body {
     background-color: rgb(28, 27, 27);
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: none;
-    padding: none;
+    margin: 0;
+    padding: 0;
 }
 
 #logo {
@@ -13,7 +13,7 @@ body {
 
 #logoNav {
     display: flex;
-    width: 300px;
+    width: 20%;
     justify-content: space-between;
 }
 
@@ -23,13 +23,13 @@ body {
     padding: 15px;
     border-bottom: 1px grey solid;
     border-top: 1px grey solid;
-    padding-right: 100px;
+    padding-right: 10%;
 }
 
 #footer {
     margin-top: 25px;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     background-color: black;
     padding: 20px;
 }
@@ -40,24 +40,27 @@ body {
 }
 
 #homePageId {
-    margin-left: 400px;
-    margin-right: 400px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 #featureContainer {
     height: 150px;
     border: 1px grey solid;
-    width: 50%;
+    width: 47%;
     border-radius: 10px;
     margin: 10px;
     padding: 5px;
+    word-wrap: break-word;
+    overflow: clip;
+    text-wrap: wrap;
     
 }
 
 #spinningHome {
     background-color: black;
-    padding-left: 400px;
-    padding-right: 400px;
+    padding-left: 20%;
+    padding-right: 20%;
     padding-top: 20px;
     padding-bottom: 20px;
     display: grid;
@@ -71,6 +74,8 @@ body {
     padding: 10px;
     padding-left: 20px;
     margin: 10px;
+    white-space: normal;
+    overflow: clip;
 }
 
 #featuredExercises {
@@ -79,6 +84,12 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     
+}
+
+.dontOverflow {
+    overflow: clip;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 #exerciseButtonMenu {
@@ -190,6 +201,7 @@ body {
     padding: 10px;
     margin: 10px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 #searchBar {
@@ -220,3 +232,17 @@ body {
     font-size:xx-small;
 }
 
+@media screen and (max-width: 800px) {
+    
+    #spinningHome {
+        padding: 0;
+        grid-template-columns: 1fr;
+    }
+    #homePageId {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    #footer {
+        flex-direction: column;
+    }
+  }

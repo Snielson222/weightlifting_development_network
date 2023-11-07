@@ -25,6 +25,28 @@ def seed_exercises():
         created_at = date.today()
     )
 
+    band_pull_aparts = Exercise(
+        name = "Band Pull Aparts",
+        type = "Warm Up",
+        description = "Hold a light exercise band in both hands and fluidly pull the band apart straight in front of you until the band touches your chest, slowly relax the band back inwards resisting the pull. Move your hands a few inches up or down from this starting point and repeat for your desired repetitions",
+        image = "https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png",
+        experience = "Beginner",
+        target_muscles = "Shoulder, Rotator Cuff",
+        owner_id = 2,
+        created_at = date.today()
+    )
+
+    bent_over_row = Exercise(
+        name = "Bent Over Row",
+        type = "Upper Body",
+        description = "Start with your hands shoulder width apart gripping a bar, lower back straight and feet shoulder width apart on the floor. Slowly raise the weighted bar to your lower chest maintaining the same posture. Lower the bar to the floor and repeat for desired repetitions.",
+        image = "https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png",
+        experience = "Advanced",
+        target_muscles = "Lats, Rhomboids, Spinal Erectors, Traps",
+        owner_id = 2,
+        created_at = date.today()
+    )
+
     rower = Exercise(
         name = "Rower",
         type = "Warm Up",
@@ -36,10 +58,36 @@ def seed_exercises():
         created_at = date.today()
     )
 
+    push_up = Exercise(
+        name = "Push Up",
+        type = "Upper Body",
+        description = "Start with your hands shoulder width apart, back straight and toes on the floor. Slowly lower your chest down until it touches the floor and push yourself back up into the starting position maintaining posture throughout.",
+        image = "https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png",
+        experience = "Beginner",
+        target_muscles = "Chest, triceps",
+        owner_id = 3,
+        created_at = date.today()
+    )
+
+    deadlift = Exercise(
+        name = "Deadlift",
+        type = "Lower Body",
+        description = "Start with your feet shoulder width apart and lower back straight bend down with your legs and grab the bar overhand with straight arms. Brace your core and lift the bar up with your legs unfolding your body like a book and driving through with your hips until you are standing straight up.",
+        image = "https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png",
+        experience = "Advanced",
+        target_muscles = " Glutes, Quads, Hamstrings, and Back",
+        owner_id = 3,
+        created_at = date.today()
+    )
+
 
     db.session.add(bench_press)
     db.session.add(squat)
     db.session.add(rower)
+    db.session.add(push_up)
+    db.session.add(deadlift)
+    db.session.add(bent_over_row)
+    db.session.add(band_pull_aparts)
     db.session.commit()
 
 

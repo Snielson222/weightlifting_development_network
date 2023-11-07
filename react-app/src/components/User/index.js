@@ -42,6 +42,7 @@ export default function UserPage() {
             />
         </div>
         <h1>My Posted Exercises</h1>
+        <div>{userExercises.length ? "" : "Click the Create an Exercise button above to post your first exercise!"}</div>
         {userExercises.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
             <div key={exercise.id}>{exercise.name}</div>
@@ -50,6 +51,7 @@ export default function UserPage() {
         </NavLink>
         ))}
         <h1>My Favorite Exercises</h1>
+        <div>{favoriteExercises.length ? "" : "Click the heart button on an exercise to add it to favorites!"}</div>
         {favoriteExercises.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
             <div key={exercise.id}>{exercise.name}</div>

@@ -64,57 +64,57 @@ export default function HomePage() {
         <img className="weightPlate" src="https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png" alt="weightPlate" />
         </div>
         <div  id="homePageId">
-            <h4>Featured Exercises</h4>
+            <h2>Featured Exercises</h2>
         <div id="featuredExercises">
             <div id="featureContainer">
                 <NavLink className="featured" to={`exercise/${featuredExercises[0]?.id}`}>
                     <h3>{featuredExercises[0]?.name}</h3>
-                    <p>{featuredExercises[0]?.description}</p>
+                    <p className="dontOverflow">{featuredExercises[0]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${featuredExercises[1]?.id}`}>
                     <h3>{featuredExercises[1]?.name}</h3>
-                    <p>{featuredExercises[1]?.description}</p>
+                    <p className="dontOverflow">{featuredExercises[1]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${featuredExercises[2]?.id}`}>
                     <h3>{featuredExercises[2]?.name}</h3>
-                    <p>{featuredExercises[2]?.description}</p>
+                    <p className="dontOverflow">{featuredExercises[2]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${featuredExercises[3]?.id}`}>
                     <h3>{featuredExercises[3]?.name}</h3>
-                    <p>{featuredExercises[3]?.description}</p>
+                    <p className="dontOverflow">{featuredExercises[3]?.description}</p>
                 </NavLink>
             </div>
         </div>
-        <h4>Recent Contributions</h4>
+        <h2>Recent Contributions</h2>
         <div id="featuredExercises">
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${sortedByDateExercises[0]?.id}`}>
                     <h3>{sortedByDateExercises[0]?.name}</h3>
-                    <p>{sortedByDateExercises[0]?.description}</p>
+                    <p className="dontOverflow">{sortedByDateExercises[0]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${sortedByDateExercises[1]?.id}`}>
                     <h3>{sortedByDateExercises[1]?.name}</h3>
-                    <p>{sortedByDateExercises[1]?.description}</p>
+                    <p className="dontOverflow">{sortedByDateExercises[1]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${sortedByDateExercises[2]?.id}`}>
                     <h3>{sortedByDateExercises[2]?.name}</h3>
-                    <p>{sortedByDateExercises[2]?.description}</p>
+                    <p className="dontOverflow">{sortedByDateExercises[2]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${sortedByDateExercises[3]?.id}`}>
                     <h3>{sortedByDateExercises[3]?.name}</h3>
-                    <p>{sortedByDateExercises[3]?.description}</p>
+                    <p className="dontOverflow">{sortedByDateExercises[3]?.description}</p>
                 </NavLink>
             </div>
         </div>
