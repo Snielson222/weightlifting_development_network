@@ -14,6 +14,9 @@ export default function CreateExerciseModal() {
     const [description, setDescription] = useState("")
     const [experience, setExperience] = useState("")
     const [muscles, setMuscles] = useState("")
+    const [errors, setErrors] = useState({})
+    const [e, setE] = useState({})
+
     const {closeModal} = useModal()
     const dispatch = useDispatch()
     const {push} = useHistory()
@@ -30,17 +33,47 @@ export default function CreateExerciseModal() {
        
         setImageLoading(true);
         const data = await dispatch(thunkCreateExercise(formData));
-        closeModal()
-        return push("/user");
+        if (data.errors) {
+            setErrors(data.errors)
+            console.log("🚀 ~ file: createExerciseModal.js:37 ~ handleSubmit ~ (data:", data)
+        } else {
+            closeModal()
+            return push("/user");
+        }
     }
     const ub = "Upper Body"
     const lb = "Lower Body"
     const wu = "Warm Up"
 
+    useEffect(() => {
+        const obj = {}
+        if (name.length < 6) {
+            obj.name = "Name Must Be Greater Than 6 characters."
+        }
+        if (description.length < 12) {
+            obj.description = "Description Must Be Greater Than 12 characters."
+        }
+        if (type == "") {
+            obj.type = "You Must Choose a Type."
+        }
+        if (experience == "") {
+            obj.experience = "You Must Choose a Difficulty."
+        }
+        if (muscles == "") {
+            obj.muscles = "You Must Choose Targeted Muscles."
+        }
+        setE(obj)
+    }, [name, description, type, experience, muscles])
+
     return (<div>
         <div className="centerMe">
         <h3>Create an Exercise</h3>
-        </div>
+            </div>
+        <ul>
+			{errors.length ? errors?.map((error, idx) => (
+				<div key={idx}>{error}</div>
+			)): ""}
+		</ul>
         <form 
             className="update-delete-form"
             onSubmit={handleSubmit}
@@ -52,6 +85,7 @@ export default function CreateExerciseModal() {
             <input type="text"
             onChange={(e) => setName(e.target.value)}>
             </input>
+            <p className="smallFont">{e.name }</p>
             <label>
             Description
             </label>
@@ -59,6 +93,7 @@ export default function CreateExerciseModal() {
             className="textArea"
             onChange={(e) => setDescription(e.target.value)}>
             </textarea>
+            <p className="smallFont">{e.description}</p>
             <fieldset>
                 <legend>Exercise Type</legend>
                 <div>
@@ -74,12 +109,14 @@ export default function CreateExerciseModal() {
                     <label for="Warm Up">Warm Up</label>
                 </div>
             </fieldset>
+            <p className="smallFont">{e.type}</p>
             <label>
             Muscles Targeted 
             </label>
             <input type="text"
             onChange={(e) => setMuscles(e.target.value)}>
             </input>
+            <p className="smallFont">{e.muscles}</p>
             <fieldset>
                 <legend>Exercise Difficulty</legend>
                 <div>
@@ -95,6 +132,7 @@ export default function CreateExerciseModal() {
                     <label for="Advanced">Advanced</label>
                 </div>
             </fieldset>
+            <p className="smallFont">{e.experience}</p>
             <label className="fileCreate">
             <input
               className="hidden"
