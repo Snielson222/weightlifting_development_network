@@ -22,13 +22,10 @@ function LoginFormModal() {
   };
 
   async function demoUser() {
-    
-    const data = await dispatch(login('demo@aa.io', 'password'));
-    if (data) {
-      setErrors(data);
-    } else {
-        closeModal()
-    }
+    setEmail('demo@aa.io')
+    setPassword('password')
+    await dispatch(login(email, password));
+    return closeModal()
   }
 
   return (

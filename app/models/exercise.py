@@ -17,7 +17,7 @@ class Exercise(db.Model):
     target_muscles = db.Column(db.String, nullable = False)
     exercise_review_id = db.relationship("Review", back_populates = "review_exercise_id", cascade="all, delete-orphan")
     exercise_user_id = db.relationship("User", back_populates = "user_exercise_id")
-    exercise_favorite_id = db.relationship("Favorite", back_populates = "favorite_exercise_id" )
+    exercise_favorite_id = db.relationship("Favorite", back_populates = "favorite_exercise_id", cascade="all, delete-orphan" )
 
     def to_dict(self):
         return_dict = {

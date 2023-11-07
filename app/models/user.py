@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     user_review_id = db.relationship("Review", back_populates = "review_user_id")
     user_exercise_id = db.relationship("Exercise", back_populates = "exercise_user_id")
-    user_favorite_id = db.relationship("Favorite", back_populates = "favorite_user_id")
+    user_favorite_id = db.relationship("Favorite", back_populates = "favorite_user_id", cascade="all, delete-orphan")
 
     @property
     def password(self):
