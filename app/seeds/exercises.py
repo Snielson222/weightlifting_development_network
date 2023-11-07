@@ -14,6 +14,28 @@ def seed_exercises():
         created_at = date.today()
     )
 
+    split_squat = Exercise(
+        name = "Split Squat",
+        type = "Lower Body",
+        description = "Start with one leg bent behind you with your foot on a stable surface such as a bench. Squat down maintaining a stable core using both of your legs to lower you down taking care not to let your forward knee cave inwards. When your back knee almost touches the floor use both legs to drive yourself upwards to the starting position.",
+        image = "https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png",
+        experience = "Intermediate",
+        target_muscles = "Quads, Hamstrings, Glutes",
+        owner_id = 1,
+        created_at = date.today()
+    )
+
+    kettlebell_swing = Exercise(
+        name = "Kettlebell Swing",
+        type = "Warm Up",
+        description = "Start with your feet shoulder width apart gripping a kettlebell in both hands bend over, keeping your back straight, and letting the kettlebell swing between your legs. Once the kettlebell is between your legs straighten your body up driving with your hips and using that momentum to propel the kettlebell over your head keeping your arms straight. Bring the kettlebell back down in a controlled motion between your legs and repeat",
+        image = "https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png",
+        experience = "Advanced",
+        target_muscles = "Full Body",
+        owner_id = 1,
+        created_at = date.today()
+    )
+
     squat = Exercise(
         name = "Squat",
         type = "Lower Body",
@@ -88,6 +110,8 @@ def seed_exercises():
     db.session.add(deadlift)
     db.session.add(bent_over_row)
     db.session.add(band_pull_aparts)
+    db.session.add(kettlebell_swing)
+    db.session.add(split_squat)
     db.session.commit()
 
 
