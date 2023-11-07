@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
@@ -14,6 +14,8 @@ function SignupFormModal() {
 	const [name, setName] = useState("")
 	const [experience, setExperience] = useState("")
 	const { closeModal } = useModal();
+	const [submitted, setSubmitted] = useState(false)
+	const [e, setE] = useState({})
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -31,10 +33,34 @@ function SignupFormModal() {
 		}
 	};
 
+	useEffect(() => {
+		const obj = {}
+			if (name.length < 6) {
+				obj.name = "Name Must Be Over 6 Characters."
+			}
+			if (!email.includes('@') || !email.includes(".")) {
+				obj.email = "Email Must Be Valid."
+			}
+			if (isNaN(experience) || experience < 0) {
+				obj.experience = "Years of Workout Experience Must Be a Positive Number."
+			}
+			if (username.length < 6) {
+				obj.username = "Username Must Be Over 6 Characters."
+			}
+			if (password.length < 6) {
+				obj.password = "Password Must Be Over 6 Characters."
+			}
+			if (confirmPassword.length < 6) {
+				obj.confirmPassword = "Confirm Password Must Be Over 6 Characters."
+			}
+			setE(obj)
+	}, [name, email, experience, password, username, confirmPassword])
+
 	return (
 		<>
-			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+			<h1 className="centerMe">Sign Up</h1>
+			<form onSubmit={handleSubmit}
+			className="update-delete-form">
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
@@ -42,59 +68,69 @@ function SignupFormModal() {
 				</ul>
 				<label>
 					Name
+					</label>
 					<input
 						type="text"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 						required
 					/>
-				</label>
+					<p className="smallFont">{e.name}</p>
 				<label>
-					Number of Years of Workout Experience
+					Years of Workout Experience
+					</label>
 					<input
 						type="text"
 						value={experience}
 						onChange={(e) => setExperience(e.target.value)}
 						required
 					/>
-				</label>
+					<p className="smallFont">{e.experience}</p>
 				<label>
 					Email
+					</label>
 					<input
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
-				</label>
+					<p className="smallFont">{e.email}</p>
 				<label>
 					Username
+					</label>
 					<input
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
 					/>
-				</label>
+					<p className="smallFont">{e.username}</p>
 				<label>
 					Password
+					</label>
 					<input
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
 					/>
-				</label>
+					<p className="smallFont">{e.password}</p>
 				<label>
 					Confirm Password
+					</label>
 					<input
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
-				</label>
-				<button type="submit">Sign Up</button>
+					<p className="smallFont">{e.confirmPassword}</p>
+				<button 
+				className="fileCreate"
+				disabled={Object.values(errors) > 0 || Object.values(e) > 0}
+				onClick={() => setSubmitted(true)}
+				type="submit">Sign Up</button>
 			</form>
 		</>
 	);

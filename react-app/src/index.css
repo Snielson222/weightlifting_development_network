@@ -1,7 +1,10 @@
 body {
     background-color: rgb(28, 27, 27);
     color: white;
-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: none;
+    padding: none;
+}
 
 #logo {
     margin-top: 10px;
@@ -27,6 +30,8 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
+    background-color: black;
+    padding: 20px;
 }
 
 #footLink {
@@ -34,11 +39,37 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     color: white;
 }
 
+#homePageId {
+    margin-left: 400px;
+    margin-right: 400px;
+}
+
 #featureContainer {
     height: 150px;
     border: 1px grey solid;
-    width: 45%;
+    width: 50%;
     border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    
+}
+
+#spinningHome {
+    background-color: black;
+    padding-left: 400px;
+    padding-right: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.featured {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    padding-left: 20px;
     margin: 10px;
 }
 
@@ -98,6 +129,8 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     cursor: pointer;
     padding: 10px;
     border: 1px grey solid;
+    border-radius: 10px;
+    gap: 5px;
 }
 
 #exerciseShow {
@@ -158,3 +191,32 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     margin: 10px;
     border-radius: 30px;
 }
+
+#searchBar {
+    width: 350px;
+}
+
+#search {
+    padding-top: 50px;
+}
+
+@keyframes around {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.weightPlate {
+    animation-name: around;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 25000ms;
+}
+
+.smallFont {
+    font-size:xx-small;
+}
+

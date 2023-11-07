@@ -15,8 +15,13 @@ function Navigation({ isLoaded }){
 		<div id="nav">
 			<div id="logoNav">
 				<NavLink exact to="/"><img src={logo1} alt='logo' id='logo'></img></NavLink>
+				<div>
+
 				<ExerciseButton />
+				</div>
+			<div className={sessionUser ? "" : "hidden"}>
 				<NavLink  exact to="/user"><button className="fileCreate">User Page</button></NavLink>
+			</div>
 			</div>
 			{isLoaded && (
 				<div>

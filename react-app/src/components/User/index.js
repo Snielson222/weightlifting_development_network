@@ -12,7 +12,7 @@ export default function UserPage() {
     const dispatch = useDispatch()
     const allExercises = useSelector((state) => state.exercises)
     const user = useSelector((state) => state.session.user)
-    const userId = user.id
+    const userId = user?.id
     const userExerciseArr = Object.values(allExercises).filter((exercise) => exercise.ownerId == userId)
     const userExercises = [...userExerciseArr]
     const allFavorites = useSelector((state) => state.favorites)
