@@ -64,15 +64,14 @@ export default function ExerciseShow() {
             />
         </div>
         <h2>{reviewArr.length ? "Reviews" : "Be the First To Post a Review"}</h2>
-        <br></br>
         {reviewArr?.map((review) => (
-            <>
-            <div key={review.id}>{review.description}</div>
+            <div id="review" key={review.id}>
             <ReactStars
             value={review.rating}
             edit={false}
             size={24}
             color2={'#ffd700'} />
+            <p>{review.description}</p>
             <div className={review?.ownerId !== userId ? "hidden" : "notHidden"}>
             <OpenModalButton 
             buttonText="Update"
@@ -83,7 +82,7 @@ export default function ExerciseShow() {
             modalComponent={<DeleteReviewModal reviewId={review.id} />}
             />
             </div>
-            </>
+            </div>
         ))}
     </div>)
 }

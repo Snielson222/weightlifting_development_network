@@ -6,11 +6,11 @@ def seed_exercises():
     bench_press = Exercise(
         name = "Bench Press",
         type = "Upper Body",
-        description = "Great exercise for building strength and size in your chest and triceps, a classic!",
+        description = "Start with your hands shoulder width apart on the weighted bar with your lats tucked underneath you, back arched, and feet on the floor. Squeezing tightly to activate stabilizer muscles bring the bar down to your mid chest with your upper arms at a 45 degree angle to your body bracing your core throughout. Push off from your chest bringing the bar up and a bit back to keep a natural path with your body mechanics. Repeat for desired repetitions.",
         image = "https://www.muscleandfitness.com/wp-content/uploads/2019/04/10-Exercises-Build-Muscle-Bench-Press.jpg?quality=86&strip=all",
         owner_id = 1,
         experience = "Intermediate",
-        target_muscles = "Pectoral, Triceps",
+        target_muscles = "Pectoral, Triceps, Anterior Delts",
         created_at = date.today()
     )
 
@@ -39,7 +39,7 @@ def seed_exercises():
     squat = Exercise(
         name = "Squat",
         type = "Lower Body",
-        description = "Great exercise for building strength and size in your quads, hamstrings, and glutes, a classic!",
+        description = "Start with your feet slightly more than shoulder width apart and toes positioned at a slight outward angle with the weighted bar resting on your upper traps and your hands gripping either side of the bar. Take a breath and brace your core. Start squatting down keeping your back straight pushing your knees out and never letting them cave in, bending at the waist pushing your hips backwards and not flexing your back. Squat down until your quads are parallel to the floor. Maintaining that brace start to rise up from the squat driving with your hips and quads until you are standing straight. Repeat for desired reps.",
         image = "https://images.ctfassets.net/3s5io6mnxfqz/34Npc5PKLKJi6HIYvFw9XI/3e45754912cf266e7401cb8074c63239/AdobeStock_386146138_2.jpeg",
         experience = "Advanced",
         target_muscles = "Quads, Hamstrings, Glutes",
@@ -72,7 +72,7 @@ def seed_exercises():
     rower = Exercise(
         name = "Rower",
         type = "Warm Up",
-        description = "Great exercise for warming up! 5 minutes and you will be warm, loose, and ready to hit the weights",
+        description = "Start with your core stabilized leaning forward with hands on the rowing bar, knees bent and feet placed on the foot wells. Lean your torso back as you extend your legs and push off from the foot wells in a fluid whole body motion. Repeat for desired time and intensity level",
         image = "https://static01.nyt.com/images/2022/11/08/multimedia/26WNT-ROWING-WORKOUT5-1-310a/26WNT-ROWING-WORKOUT5-1-310a-videoSixteenByNine3000.jpg",
         experience = "Beginner",
         target_muscles = "General Fitness",
@@ -97,7 +97,7 @@ def seed_exercises():
         description = "Start with your feet shoulder width apart and lower back straight bend down with your legs and grab the bar overhand with straight arms. Brace your core and lift the bar up with your legs unfolding your body like a book and driving through with your hips until you are standing straight up.",
         image = "https://workout-development-network.s3.us-east-2.amazonaws.com/imageedit_2_6458890741.png",
         experience = "Advanced",
-        target_muscles = " Glutes, Quads, Hamstrings, and Back",
+        target_muscles = "Glutes, Quads, Hamstrings, and Back",
         owner_id = 3,
         created_at = date.today()
     )
