@@ -4,6 +4,7 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 #logo {
@@ -24,14 +25,6 @@ body {
     border-bottom: 1px grey solid;
     border-top: 1px grey solid;
     padding-right: 10%;
-}
-
-#footer {
-    margin-top: 25px;
-    display: flex;
-    justify-content:space-around;
-    background-color: black;
-    padding: 20px;
 }
 
 #footLink {
@@ -114,6 +107,9 @@ body {
 
 #thisExerciseImage {
     width: 80%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    margin: 10px;
 }
 
 #modal-content {
@@ -141,7 +137,10 @@ body {
     padding: 10px;
     border: 1px grey solid;
     border-radius: 10px;
-    gap: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #exerciseShow {
@@ -209,7 +208,7 @@ body {
 }
 
 #searchBar {
-    width: 350px;
+    width: 66%;
 }
 
 #search {
@@ -252,6 +251,38 @@ body {
     margin: 10px;
 }
 
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  background-color: black;
+  padding: 20px;
+  height: 200px;
+}
+
+#socialMedia {
+    display: flex;
+    justify-content: space-between;
+}
+
+#privacyPolicy {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bigHeader {
+    margin-top: 100px;
+    margin-bottom: 500px;
+    font-size: large;
+}
+
 @media screen and (max-width: 800px) {
     
     #spinningHome {
@@ -261,13 +292,39 @@ body {
     #homePageId {
         margin-left: 0px;
         margin-right: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     #footer {
         flex-direction: column;
+        align-items: center;
     }
     #exerciseShow {
         padding-left: 5%;
         padding-right: 5%;
+    }
+
+    #featuredExercises {
+        flex-wrap: nowrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .featured {
+        font-size: x-small;
+    }
+
+    #socialMedia {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #privacyPolicy {
+        flex-direction: column;
+        align-items: center;
     }
 
 }

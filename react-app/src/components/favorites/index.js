@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { thunkCreateFavorite, thunkDeleteFavorite, thunkGetAllFavorites } from "../../store/favorite";
 
 export default function FavoriteAnExercise({ favoriteId }) {

@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { thunkCreateExercise } from "../../store/exercise";
-import { NavLink, useParams, useHistory} from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 
 

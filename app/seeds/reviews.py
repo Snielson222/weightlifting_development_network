@@ -4,24 +4,24 @@ from datetime import date
 
 def seed_reviews():
     review_1 = Review(
-       rating = 1,
-       description = "test",
+       rating = 5,
+       description = "Great exercise! Really helped me improve my fitness!",
        owner_id = 3,
        exercise_id = 1,
        created_at = date.today()
     )
 
     review_2 = Review(
-       rating = 2,
-       description = "test2",
+       rating = 4,
+       description = "A little too challenging for me, working up to it though.",
        owner_id = 2,
        exercise_id = 2,
        created_at = date.today()
     )
 
     review_3 = Review(
-       rating = 3,
-       description = "test3",
+       rating = 1,
+       description = "This exercise is not for me at all, greta website though!",
        owner_id = 1,
        exercise_id = 3,
        created_at = date.today()

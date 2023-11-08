@@ -1,9 +1,8 @@
 import React from "react";
 import ReactStars from 'react-stars'
-import { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState} from "react";
+import { useDispatch} from "react-redux";
 import { thunkCreateReview } from "../../store/review";
-import { NavLink, useParams, useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 
 export default function CreateReviewModal({ id }) {
@@ -26,7 +25,7 @@ export default function CreateReviewModal({ id }) {
             "description": description,
             "exercise_id": id
         }
-        const data = await dispatch(thunkCreateReview(review))
+        await dispatch(thunkCreateReview(review))
         
         return closeModal()
 

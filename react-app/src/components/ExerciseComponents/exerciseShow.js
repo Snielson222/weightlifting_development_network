@@ -1,11 +1,10 @@
 import React from "react";
 import ReactStars from 'react-stars'
-import { render } from 'react-dom'
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllExercises } from "../../store/exercise";
 import { thunkGetAllReviews } from "../../store/review"
-import { NavLink, useParams} from "react-router-dom/cjs/react-router-dom.min";
+import { useParams} from "react-router-dom/cjs/react-router-dom.min";
 import OpenModalButton from "../OpenModalButton";
 import DeleteExerciseModal from "./deleteExerciseModal";
 import UpdateExerciseModal from "./updateExerciseModel";

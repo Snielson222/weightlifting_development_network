@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkUpdateExercise, thunkGetAllExercises} from "../../store/exercise";
-import { NavLink, useParams, useHistory} from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 
 
@@ -34,8 +34,6 @@ export default function UpdateExerciseModal({id}) {
         setType(thisExercise?.type)
         setName(thisExercise?.name)
         setMuscles(thisExercise?.targetMuscles)
-
-        
     }, [dispatch])
 
     useEffect(() => {

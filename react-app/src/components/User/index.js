@@ -1,9 +1,9 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllExercises } from "../../store/exercise";
 import { thunkGetAllFavorites } from "../../store/favorite";
-import { NavLink, useParams} from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink} from "react-router-dom/cjs/react-router-dom.min";
 import OpenModalButton from "../OpenModalButton";
 import CreateExerciseModal from "../ExerciseComponents/createExerciseModal";
 
