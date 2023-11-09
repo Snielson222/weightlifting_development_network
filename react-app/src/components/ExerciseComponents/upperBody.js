@@ -15,12 +15,11 @@ export default function UpperBody() {
         dispatch(thunkGetAllExercises())
     }, [dispatch])
 
-    return (<div>
+    return (<div className="paddingExercises">
         <h1>Upper Body Exercises</h1>
         {upperBodyArr.map((exercise) => (
              <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
              <div key={exercise.id}>{exercise.name}</div>
-             <div>{exercise.experience}</div>
              <div>{exercise.targetMuscles}</div>
          </NavLink>
         ))}

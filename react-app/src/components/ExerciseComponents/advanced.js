@@ -15,12 +15,11 @@ export default function Advanced() {
         dispatch(thunkGetAllExercises())
     }, [dispatch])
 
-    return(<div>
+    return(<div className="paddingExercises">
         <h1>Advanced Exercises</h1>
         {advancedArr.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
                 <div key={exercise.id}>{exercise.name}</div>
-                <div>{exercise.experience}</div>
                 <div>{exercise.targetMuscles}</div>
             </NavLink>
         ))}

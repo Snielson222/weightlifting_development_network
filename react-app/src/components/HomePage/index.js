@@ -11,11 +11,17 @@ export default function HomePage() {
     const [errors, setErrors] = useState('')
 
     const allExercises = useSelector((state) => state.exercises)
+    const allExerciseArr = Object.values(allExercises)
     const featuredExercises = []
+
+    function randInt(num) {
+        return Math.floor(Math.random() * num);
+      }
     
     for (let i = 0; i < 4; i++) {
-        featuredExercises.push(Object.values(allExercises)[i])
+        featuredExercises.push(allExerciseArr[randInt(allExerciseArr.length - 1)])
     }
+
     function sortDate(a, b) {
         if (a.createdAt > b.createdAt) {
             return -1;
@@ -25,7 +31,6 @@ export default function HomePage() {
             return 0;
     }
     const sortedByDateExercises = Object.values(allExercises).sort(sortDate)
-    console.log("🚀 ~ file: index.js:28 ~ HomePage ~ sortedByDateExercises:", sortedByDateExercises)
 
     useEffect(() => {
         dispatch(thunkGetAllExercises())

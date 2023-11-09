@@ -258,6 +258,8 @@ body {
   background-color: black;
   padding: 20px;
   height: 200px;
+  margin-top: 10px;
+  border-top: 1px grey solid;
 }
 
 #socialMedia {
@@ -281,6 +283,11 @@ body {
     margin-top: 100px;
     margin-bottom: 500px;
     font-size: large;
+}
+
+.paddingExercises {
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 @media screen and (max-width: 800px) {
@@ -325,6 +332,15 @@ body {
     #privacyPolicy {
         flex-direction: column;
         align-items: center;
+    }
+
+    .paddingExercises {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #nav {
+        padding-right: 20%;
     }
 
 }

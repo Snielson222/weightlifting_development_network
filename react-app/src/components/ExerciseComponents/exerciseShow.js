@@ -31,10 +31,6 @@ export default function ExerciseShow() {
 
     const userReviews = reviewArr.filter((review) => review.ownerId == userId)
 
-    const ratingChanged = (newRating) => {
-        console.log(newRating)
-      }
-
     
     useEffect(() => {
         dispatch(thunkGetAllExercises())

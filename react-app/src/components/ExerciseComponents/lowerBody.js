@@ -15,12 +15,11 @@ export default function LowerBody() {
         dispatch(thunkGetAllExercises())
     }, [dispatch])
 
-    return(<div>
+    return(<div className="paddingExercises">
         <h1>Lower Body Exercises</h1>
         {lowerBodyArr.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
                 <div key={exercise.id}>{exercise.name}</div>
-                <div>{exercise.experience}</div>
                 <div>{exercise.targetMuscles}</div>
             </NavLink>
         ))}

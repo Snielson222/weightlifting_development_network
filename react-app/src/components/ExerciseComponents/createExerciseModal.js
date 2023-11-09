@@ -16,7 +16,7 @@ export default function CreateExerciseModal() {
     const [muscles, setMuscles] = useState("")
     const [errors, setErrors] = useState({})
     const [e, setE] = useState({})
-    const [imageChosen, setImageChosen] = useState(false)
+    
 
     const {closeModal} = useModal()
     const dispatch = useDispatch()
@@ -48,7 +48,7 @@ export default function CreateExerciseModal() {
 
     useEffect(() => {
         const obj = {}
-        if (imageChosen == true) {
+        
 
             if (name.length < 6) {
                 obj.name = "Name Must Be Greater Than 6 characters."
@@ -66,8 +66,8 @@ export default function CreateExerciseModal() {
                 obj.muscles = "You Must Choose Targeted Muscles."
             }
             setE(obj)
-        }
-    }, [name, description, type, experience, muscles, imageChosen])
+        
+    }, [name, description, type, experience, muscles])
 
     return (<div>
         <div className="centerMe">
@@ -132,8 +132,7 @@ export default function CreateExerciseModal() {
                 </div>
             </fieldset>
             <p className="smallFont">{e.experience}</p>
-            <label className="fileCreate"
-            onClick={() => setImageChosen(true)}>
+            <label className="fileCreate">
             <input
               className="hidden"
               type="file"
@@ -144,7 +143,7 @@ export default function CreateExerciseModal() {
             </label>
             <div>{image == null ? "Choose Exercise Image" : image['name']}</div>
             <p className="smallFont">{errors.length ? errors[0] : ""}</p>
-            <button className="fileCreate" type="submit" disabled={imageChosen == false}>Submit</button>
+            <button className="fileCreate" type="submit" disabled={Object.values(e).length >0}>Submit</button>
             {imageLoading && (<div aria-busy="true" aria-describedby="progress-bar">
         <progress id="progress-bar" aria-label="Content loading…"></progress>
          </div>)}

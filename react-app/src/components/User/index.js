@@ -34,7 +34,7 @@ export default function UserPage() {
         dispatch(thunkGetAllFavorites())
     }, [dispatch])
 
-    return(<div>
+    return(<div className="paddingExercises">
         <div className="centerMe">
         <OpenModalButton
               buttonText="Create an Exercise"
@@ -46,7 +46,6 @@ export default function UserPage() {
         {userExercises.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
             <div key={exercise.id}>{exercise.name}</div>
-            <div>{exercise.experience}</div>
             <div>{exercise.targetMuscles}</div>
         </NavLink>
         ))}
@@ -55,7 +54,6 @@ export default function UserPage() {
         {favoriteExercises.map((exercise) => (
             <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
             <div key={exercise.id}>{exercise.name}</div>
-            <div>{exercise.experience}</div>
             <div>{exercise.targetMuscles}</div>
         </NavLink>
         ))}

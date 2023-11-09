@@ -144,7 +144,7 @@ export default function UpdateExerciseModal({id}) {
                     <label for="Advanced">Advanced</label>
                 </div>
             </fieldset>
-            <button className="fileCreate" type="submit">Submit</button>
+            <button className="fileCreate" type="submit" disabled={Object.values(e).length >0}>Submit</button>
         </form>
     </div>)
 }
