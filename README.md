@@ -1,148 +1,69 @@
-# Flask React Project
+# Workout Development Network
 
-This is the starter for the Flask React project.
+Check it out live : https://wdn-mwc8.onrender.com/
 
-## Getting started
-1. Clone this repository (only this branch)
+WDN - Workout Development Network is a loosely based clone of MDN - Mozilla Developer Network. It contains a organized repository of exercises that make it easy for beginners or advanced workout enthusiasts to learn new exercises. Much like MDN does for learning different programming languages.
 
-2. Install dependencies
+WDN is built with a Flask/SQLalchemy backend and the frontend rendering is handled with react. Its deployed on Render using a docker container and has full AWS integration for photos.
 
-      ```bash
-      pipenv install -r requirements.txt
-      ```
+### ScreenShots
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+### Home Page With Search
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
+![home_page](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.22.46%E2%80%AFAM.png)
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
+### Lower Body Exercises Page From Exercise Drop Down Menu
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+![lower_body](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.29.54%E2%80%AFAM.png)
 
-   ```bash
-   pipenv shell
-   ```
+### User Page
 
-   ```bash
-   flask db upgrade
-   ```
+![user_page](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.35.46%E2%80%AFAM.png)
 
-   ```bash
-   flask seed all
-   ```
+### Exercise Page
 
-   ```bash
-   flask run
-   ```
+![exercise_page](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.41.33%E2%80%AFAM.png)
 
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+### Favorites and Reviews on Exercise Page
+
+![exercise_page_fav](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.42.15%E2%80%AFAM.png)
 
 
-## Deployment through Render.com
+### Mobile View Iphone 12 Pro
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+![mobile_view](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.47.26%E2%80%AFAM.png)
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+## Features
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+* Find an exercise organized by lower body, upper body, warm up, beginner, intermediate, or advanced.
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+* Check out featured or recently posted exercises.
 
-### Part A: Configure the Start and Build Commands
+* Create your own exercise to add to the repository and update or delete it as needed.
 
-Start by giving your application a name.
+* Search for an exercise by directly querying the database.
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+* Favorite or Unfavorite an exercise and have it added to your user page for quick reference.
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+* Read reviews on exercises you may want to try.
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+* Post a review with a star rating that you can update or delete.
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+### Technologies Used
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+* React
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+* Flask
 
-Now, add your start command in the Start field:
+* SQLAlchemy
 
-```shell
-# start script
-gunicorn app:app
-```
+* Alembic
 
-_If you are using websockets, use the following start command instead for increased performance:_
+* Docker
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+* Amazon Web Services
 
-### Part B: Add the Environment Variables
+* Render
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+* Postgres
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
-
-Add the following keys and values in the Render GUI form:
-
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
-
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
