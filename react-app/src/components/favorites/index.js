@@ -5,7 +5,6 @@ import { thunkCreateFavorite, thunkDeleteFavorite, thunkGetAllFavorites } from "
 
 export default function FavoriteAnExercise({ favoriteId }) {
     const dispatch = useDispatch()
-    const [favorite, setFavorite] = useState(false)
 
     const user = useSelector((state) => state.session.user)
     const userId = user?.id
@@ -17,16 +16,16 @@ export default function FavoriteAnExercise({ favoriteId }) {
 
     useEffect(() => {
         dispatch(thunkGetAllFavorites())
-    }, [dispatch, favorite])
+    }, [dispatch])
 
     function deleteFavorite() {
-        dispatch(thunkDeleteFavorite(thisExerciseFavorite[0].id))
-        return setFavorite(false)
+        return dispatch(thunkDeleteFavorite(thisExerciseFavorite[0].id))
+        
     }
 
     function createFavorite() {
-        dispatch(thunkCreateFavorite(favoriteId))
-        return setFavorite(true)
+        return dispatch(thunkCreateFavorite(favoriteId))
+        
     }
 
     return (<div>
