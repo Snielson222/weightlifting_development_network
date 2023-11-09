@@ -54,8 +54,8 @@ def seed_reviews():
     review_7 = Review(
        rating = 5,
        description = "Great exercise! Really helped me improve my size!",
-       owner_id = 7,
-       exercise_id = 1,
+       owner_id = 1,
+       exercise_id = 7,
        created_at = date.today()
     )
 
