@@ -1,148 +1,125 @@
-# Flask React Project
+# Workout Development Network
 
-This is the starter for the Flask React project.
+Check it out live : https://wdn-mwc8.onrender.com/
 
-## Getting started
-1. Clone this repository (only this branch)
+WDN - Workout Development Network is a loosely based clone of MDN - Mozilla Developer Network. It contains a organized repository of exercises that make it easy for beginners or advanced workout enthusiasts to learn new exercises. Much like MDN does for learning different programming languages.
 
-2. Install dependencies
+WDN is built with a Flask/SQLalchemy backend and the frontend rendering is handled with react. Its deployed on Render using a docker container and has full AWS integration for photos.
 
-      ```bash
-      pipenv install -r requirements.txt
-      ```
+## Technologies Used
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+* React
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
+* Redux
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
+* Flask
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+* SQLAlchemy
 
-   ```bash
-   pipenv shell
-   ```
+* Alembic
 
-   ```bash
-   flask db upgrade
-   ```
+* Docker
 
-   ```bash
-   flask seed all
-   ```
+* Amazon Web Services
 
-   ```bash
-   flask run
-   ```
+* Render
 
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+* Postgres
+
+### Plugins Used
+
+* React-Stars
+* React-Redux 
+* React-Router-Dom
+* WTForms
+* WTFForms-validators (including separate email validator)
+* Boto3 for AWS
+* Greenlet
+* Gunicorn
+
+### Languages
+
+* JavaScript
+* JSX
+* Python
+* CSS (Plain CSS for all styling)
+## ScreenShots
+
+### Home Page With Search
+
+![home_page](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.22.46%E2%80%AFAM.png)
+
+### Lower Body Exercises Page From Exercise Drop Down Menu
+
+![lower_body](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.29.54%E2%80%AFAM.png)
+
+### User Page
+
+![user_page](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.35.46%E2%80%AFAM.png)
+
+### Exercise Page
+
+![exercise_page](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.41.33%E2%80%AFAM.png)
+
+### Favorites and Reviews on Exercise Page
+
+![exercise_page_fav](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.42.15%E2%80%AFAM.png)
 
 
-## Deployment through Render.com
+### Mobile View Iphone 12 Pro
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+![mobile_view](https://workout-development-network.s3.us-east-2.amazonaws.com/Screenshot+2023-11-09+at+11.47.26%E2%80%AFAM.png)
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+## Features
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+* Find an exercise organized by lower body, upper body, warm up, beginner, intermediate, or advanced.
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+* Check out featured or recently posted exercises.
 
-### Part A: Configure the Start and Build Commands
+* Create your own exercise to add to the repository and update or delete it as needed.
 
-Start by giving your application a name.
+* Search for an exercise by directly querying the database.
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+* Favorite or Unfavorite an exercise and have it added to your user page for quick reference.
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+* Read reviews on exercises you may want to try.
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+* Post a review with a star rating that you can update or delete.
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+### Database Schema
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+![schema](https://workout-development-network.s3.us-east-2.amazonaws.com/Untitled.png)
 
-Now, add your start command in the Start field:
+## Running the Project
+* Open up a terminal at the route run pipenv shell then flask run
+* Open up a terminal from the react app folder run npm i then npm start
+* You will need an ENV file with the proper variables as well as a flaskenv file
 
-```shell
-# start script
-gunicorn app:app
-```
+## Future Features
 
-_If you are using websockets, use the following start command instead for increased performance:_
+* Workout Builder that draws from the exercise repository to make a printable workout for the user.
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+## Licence
 
-### Part B: Add the Environment Variables
+MIT License
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+Copyright (c) [2023] [Steven Peter Nielson]
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Add the following keys and values in the Render GUI form:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
-
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
