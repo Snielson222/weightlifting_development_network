@@ -5,8 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo1 from './logo1.png'
 import ExerciseButton from './ExerciseButton';
-import CreateExerciseModal from '../ExerciseComponents/createExerciseModal';
-import OpenModalButton from '../OpenModalButton';
+
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);

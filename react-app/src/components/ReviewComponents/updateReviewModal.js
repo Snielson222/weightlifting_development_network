@@ -3,7 +3,6 @@ import ReactStars from 'react-stars'
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { thunkUpdateReview } from "../../store/review";
-import { useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 
 export default function UpdateReviewModal({ reviewId }) {
@@ -32,7 +31,7 @@ export default function UpdateReviewModal({ reviewId }) {
             "description": description,
             "exercise_id": thisReview.exerciseId
         }
-        const data = await dispatch(thunkUpdateReview(review, reviewId))
+        await dispatch(thunkUpdateReview(review, reviewId))
         return closeModal()
 
     }

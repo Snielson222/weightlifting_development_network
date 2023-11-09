@@ -1,11 +1,10 @@
 import React from "react";
 import ReactStars from 'react-stars'
-import { render } from 'react-dom'
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllExercises } from "../../store/exercise";
 import { thunkGetAllReviews } from "../../store/review"
-import { NavLink, useParams} from "react-router-dom/cjs/react-router-dom.min";
+import { useParams} from "react-router-dom/cjs/react-router-dom.min";
 import OpenModalButton from "../OpenModalButton";
 import DeleteExerciseModal from "./deleteExerciseModal";
 import UpdateExerciseModal from "./updateExerciseModel";
@@ -30,9 +29,7 @@ export default function ExerciseShow() {
     const thisExerciseReviews = Object.values(allReviews).filter((review) => review.exerciseId == id)
     const reviewArr = [...thisExerciseReviews]
 
-    const ratingChanged = (newRating) => {
-        console.log(newRating)
-      }
+    const userReviews = reviewArr.filter((review) => review.ownerId == userId)
 
     
     useEffect(() => {
@@ -57,22 +54,21 @@ export default function ExerciseShow() {
         </div>
         <h4>Muscles Targeted: {thisExercise?.targetMuscles}</h4>
         <p>{thisExercise?.description}</p>
-        <div className={userId ? "" : "hidden"}>
+        <div className={!userReviews.length && userId && userId !== thisExercise?.ownerId ? "centerMe" : "hidden"}>
         <OpenModalButton 
             buttonText="Review This Exercise"
             modalComponent={<CreateReviewModal id={id} />}
             />
-        </div>
         <h2>{reviewArr.length ? "Reviews" : "Be the First To Post a Review"}</h2>
-        <br></br>
+        </div>
         {reviewArr?.map((review) => (
-            <>
-            <div key={review.id}>{review.description}</div>
+            <div id="review" key={review.id}>
             <ReactStars
             value={review.rating}
             edit={false}
             size={24}
             color2={'#ffd700'} />
+            <p>{review.description}</p>
             <div className={review?.ownerId !== userId ? "hidden" : "notHidden"}>
             <OpenModalButton 
             buttonText="Update"
@@ -83,7 +79,7 @@ export default function ExerciseShow() {
             modalComponent={<DeleteReviewModal reviewId={review.id} />}
             />
             </div>
-            </>
+            </div>
         ))}
     </div>)
 }

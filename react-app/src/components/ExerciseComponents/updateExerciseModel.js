@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkUpdateExercise, thunkGetAllExercises} from "../../store/exercise";
-import { NavLink, useParams, useHistory} from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 
 
@@ -34,8 +34,6 @@ export default function UpdateExerciseModal({id}) {
         setType(thisExercise?.type)
         setName(thisExercise?.name)
         setMuscles(thisExercise?.targetMuscles)
-
-        
     }, [dispatch])
 
     useEffect(() => {
@@ -146,7 +144,7 @@ export default function UpdateExerciseModal({id}) {
                     <label for="Advanced">Advanced</label>
                 </div>
             </fieldset>
-            <button className="fileCreate" type="submit">Submit</button>
+            <button className="fileCreate" type="submit" disabled={Object.values(e).length >0}>Submit</button>
         </form>
     </div>)
 }

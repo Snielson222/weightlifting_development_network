@@ -16,12 +16,11 @@ export default function WarmUp() {
         dispatch(thunkGetAllExercises())
     }, [dispatch])
 
-    return(<div>
+    return(<div className="paddingExercises">
         <h1>Warm Up Exercises</h1>
         {warmUpArr.map((exercise) => (
              <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
              <div key={exercise.id}>{exercise.name}</div>
-             <div>{exercise.experience}</div>
              <div>{exercise.targetMuscles}</div>
          </NavLink>
         ))}

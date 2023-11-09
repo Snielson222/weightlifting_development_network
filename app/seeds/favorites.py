@@ -21,10 +21,52 @@ def seed_favorites():
        created_at = date.today()
     )
 
+    Favorite_4 = Favorite(
+       owner_id = 3,
+       exercise_id = 10,
+       created_at = date.today()
+    )
+
+    Favorite_5 = Favorite(
+       owner_id = 2,
+       exercise_id = 9,
+       created_at = date.today()
+    )
+
+    Favorite_6 = Favorite(
+       owner_id = 1,
+       exercise_id = 8,
+       created_at = date.today()
+    )
+
+    Favorite_7 = Favorite(
+       owner_id = 3,
+       exercise_id = 14,
+       created_at = date.today()
+    )
+
+    Favorite_8 = Favorite(
+       owner_id = 2,
+       exercise_id = 13,
+       created_at = date.today()
+    )
+
+    Favorite_9 = Favorite(
+       owner_id = 1,
+       exercise_id = 12,
+       created_at = date.today()
+    )
+
 
     db.session.add(Favorite_1)
     db.session.add(Favorite_2)
     db.session.add(Favorite_3)
+    db.session.add(Favorite_4)
+    db.session.add(Favorite_5)
+    db.session.add(Favorite_6)
+    db.session.add(Favorite_7)
+    db.session.add(Favorite_8)
+    db.session.add(Favorite_9)
     db.session.commit()
 
 
