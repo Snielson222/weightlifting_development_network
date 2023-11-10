@@ -31,12 +31,23 @@ export default function FavoriteAnExercise({ favoriteId }) {
     return (<div>
         <button
         className={userId ? "" : "hidden"}
+        hidden={userFavorites.length}
         id="favoriteButton"
-        onClick={userFavorites.length ? deleteFavorite : createFavorite}
+        onClick={createFavorite}
         >
             <i class="fa fa-2x fa-heart" 
             aria-hidden="true"
-            id={userFavorites.length > 0 ? "filled" : "unfilled"}></i>
+            id={"unfilled"}></i>
+        </button>
+        <button
+        className={userId ? "" : "hidden"}
+        hidden={!userFavorites.length}
+        id="favoriteButton"
+        onClick={deleteFavorite}
+        >
+            <i class="fa fa-2x fa-heart" 
+            aria-hidden="true"
+            id={"filled"}></i>
         </button>
     </div>)
 }
