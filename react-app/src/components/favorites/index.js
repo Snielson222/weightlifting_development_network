@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateFavorite, thunkDeleteFavorite, thunkGetAllFavorites } from "../../store/favorite";
 
@@ -19,7 +19,7 @@ export default function FavoriteAnExercise({ favoriteId }) {
     }, [dispatch])
 
     function deleteFavorite() {
-        return dispatch(thunkDeleteFavorite(thisExerciseFavorite[0].id))
+        return dispatch(thunkDeleteFavorite(thisExerciseFavorite[0]?.id))
         
     }
 
