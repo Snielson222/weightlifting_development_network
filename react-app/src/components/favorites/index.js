@@ -12,7 +12,6 @@ export default function FavoriteAnExercise({ favoriteId }) {
     const favorites = useSelector((state) => state.favorites)
     const thisExerciseFavorite = Object.values(favorites).filter((favorite) => favorite.exerciseId == favoriteId)
     const userFavorites = thisExerciseFavorite.filter((favorite) => favorite.ownerId == userId)
-    console.log("🚀 ~ file: index.js:13 ~ FavoriteAnExercise ~ thisExerciseFavorite:", thisExerciseFavorite)
 
     useEffect(() => {
         dispatch(thunkGetAllFavorites())

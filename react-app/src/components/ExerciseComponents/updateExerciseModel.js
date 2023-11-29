@@ -10,11 +10,9 @@ export default function UpdateExerciseModal({id}) {
     const allExercises = useSelector((state) => state.exercises)
     const thisExerciseArr = Object.values(allExercises).filter((exercise) => exercise.id == id)
     const thisExercise = thisExerciseArr[0]
-    console.log("🚀 ~ file: updateExerciseModel.js:12 ~ UpdateExerciseModal ~ thisExercise:", thisExercise)
 
     const [name, setName] = useState('')
     const [type, setType] = useState("")
-    console.log("🚀 ~ file: updateExerciseModel.js:17 ~ UpdateExerciseModal ~ type:", type)
     const [description, setDescription] = useState('')
     const [experience, setExperience] = useState('')
     const [muscles, setMuscles] = useState('')
@@ -67,7 +65,6 @@ export default function UpdateExerciseModal({id}) {
         const data = await dispatch(thunkUpdateExercise(updatedExercise, id))
         if (data.errors) {
             setErrors(data.errors)
-            console.log("🚀 ~ file: createExerciseModal.js:37 ~ handleSubmit ~ (data:", data)
         } else {
             closeModal()
             return push(`/exercise/${thisExercise?.id}`);

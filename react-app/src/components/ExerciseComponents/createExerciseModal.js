@@ -32,11 +32,10 @@ export default function CreateExerciseModal() {
         formData.append("experience", experience);
         formData.append("target_muscles", muscles);
        
-        setImageLoading(true);
+        if (image) setImageLoading(true);
         const data = await dispatch(thunkCreateExercise(formData));
         if (data.errors) {
             setErrors(data.errors)
-            console.log("🚀 ~ file: createExerciseModal.js:37 ~ handleSubmit ~ (data:", data)
         } else {
             closeModal()
             return push("/user");
@@ -146,7 +145,7 @@ export default function CreateExerciseModal() {
             <div>{image == null ? "Choose Exercise Image" : image['name']}</div>
             <p className="smallFont">{errors.length ? errors[0] : ""}</p>
             <button className="fileCreate" type="submit" disabled={Object.values(e).length >0}>Submit</button>
-            {imageLoading && (<div aria-busy="true" aria-describedby="progress-bar">
+            {image && imageLoading && (<div aria-busy="true" aria-describedby="progress-bar">
         <progress id="progress-bar" aria-label="Content loading…"></progress>
          </div>)}
         </form>
