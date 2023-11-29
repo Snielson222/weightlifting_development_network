@@ -50,9 +50,9 @@ export default function CreateExerciseModal() {
         const obj = {}
         
 
-            if (name.length < 6) {
-                obj.name = "Name Must Be Greater Than 6 characters."
-            }
+            // if (name.length < 6) {
+            //     obj.name = "Name Must Be Greater Than 6 characters."
+            // }
             if (description.length < 12) {
                 obj.description = "Description Must Be Greater Than 12 characters."
             }
@@ -62,9 +62,9 @@ export default function CreateExerciseModal() {
             if (experience == "") {
                 obj.experience = "You Must Choose a Difficulty."
             }
-            if (muscles == "") {
-                obj.muscles = "You Must Choose Targeted Muscles."
-            }
+            // if (muscles == "") {
+            //     obj.muscles = "You Must Choose Targeted Muscles."
+            // }
             setE(obj)
         
     }, [name, description, type, experience, muscles])
@@ -82,6 +82,7 @@ export default function CreateExerciseModal() {
             Name
             </label>
             <input type="text"
+            required
             onChange={(e) => setName(e.target.value)}>
             </input>
             <p className="smallFont">{e.name }</p>
@@ -97,6 +98,7 @@ export default function CreateExerciseModal() {
             Muscles Targeted 
             </label>
             <input type="text"
+            required
             onChange={(e) => setMuscles(e.target.value)}>
             </input>
             <p className="smallFont">{e.muscles}</p>

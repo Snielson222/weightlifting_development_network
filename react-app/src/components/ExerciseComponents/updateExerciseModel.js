@@ -40,15 +40,15 @@ export default function UpdateExerciseModal({id}) {
 
         const obj = {}
 
-            if (name.length < 6) {
-                obj.name = "Name Must Be Greater Than 6 characters."
-            }
+            // if (name.length < 6) {
+            //     obj.name = "Name Must Be Greater Than 6 characters."
+            // }
             if (description.length < 12) {
                 obj.description = "Description Must Be Greater Than 12 characters."
             }
-            if (muscles == "") {
-                obj.muscles = "You Must Choose Targeted Muscles."
-            }
+            // if (muscles == "") {
+            //     obj.muscles = "You Must Choose Targeted Muscles."
+            // }
             setE(obj)
 
 
@@ -92,6 +92,7 @@ export default function UpdateExerciseModal({id}) {
             Name
             </label>
             <input type="text"
+            required
             value={name}
             onChange={(e) => setName(e.target.value)}>
             </input>
@@ -109,6 +110,7 @@ export default function UpdateExerciseModal({id}) {
             Muscles Targeted
             </label>
             <input type="text"
+            required
             value={muscles}
             onChange={(e) => setMuscles(e.target.value)}>
             </input>
