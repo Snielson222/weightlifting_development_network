@@ -32,11 +32,10 @@ export default function CreateExerciseModal() {
         formData.append("experience", experience);
         formData.append("target_muscles", muscles);
        
-        setImageLoading(true);
+        if (image) setImageLoading(true);
         const data = await dispatch(thunkCreateExercise(formData));
         if (data.errors) {
             setErrors(data.errors)
-            console.log("🚀 ~ file: createExerciseModal.js:37 ~ handleSubmit ~ (data:", data)
         } else {
             closeModal()
             return push("/user");
@@ -50,9 +49,9 @@ export default function CreateExerciseModal() {
         const obj = {}
         
 
-            if (name.length < 6) {
-                obj.name = "Name Must Be Greater Than 6 characters."
-            }
+            // if (name.length < 6) {
+            //     obj.name = "Name Must Be Greater Than 6 characters."
+            // }
             if (description.length < 12) {
                 obj.description = "Description Must Be Greater Than 12 characters."
             }
@@ -62,9 +61,9 @@ export default function CreateExerciseModal() {
             if (experience == "") {
                 obj.experience = "You Must Choose a Difficulty."
             }
-            if (muscles == "") {
-                obj.muscles = "You Must Choose Targeted Muscles."
-            }
+            // if (muscles == "") {
+            //     obj.muscles = "You Must Choose Targeted Muscles."
+            // }
             setE(obj)
         
     }, [name, description, type, experience, muscles])
@@ -82,6 +81,7 @@ export default function CreateExerciseModal() {
             Name
             </label>
             <input type="text"
+            required
             onChange={(e) => setName(e.target.value)}>
             </input>
             <p className="smallFont">{e.name }</p>
@@ -97,6 +97,7 @@ export default function CreateExerciseModal() {
             Muscles Targeted 
             </label>
             <input type="text"
+            required
             onChange={(e) => setMuscles(e.target.value)}>
             </input>
             <p className="smallFont">{e.muscles}</p>
@@ -144,7 +145,7 @@ export default function CreateExerciseModal() {
             <div>{image == null ? "Choose Exercise Image" : image['name']}</div>
             <p className="smallFont">{errors.length ? errors[0] : ""}</p>
             <button className="fileCreate" type="submit" disabled={Object.values(e).length >0}>Submit</button>
-            {imageLoading && (<div aria-busy="true" aria-describedby="progress-bar">
+            {image && imageLoading && (<div aria-busy="true" aria-describedby="progress-bar">
         <progress id="progress-bar" aria-label="Content loading…"></progress>
          </div>)}
         </form>

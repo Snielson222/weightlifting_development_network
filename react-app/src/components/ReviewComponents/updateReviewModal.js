@@ -6,7 +6,6 @@ import { thunkUpdateReview } from "../../store/review";
 import { useModal } from "../../context/Modal";
 
 export default function UpdateReviewModal({ reviewId }) {
-    console.log("🚀 ~ file: updateReviewModal.js:10 ~ UpdateReviewModal ~ reviewId:", reviewId)
     const reviews = useSelector((state) => state.reviews)
     const thisReviewArr = Object.values(reviews).filter((review) => review.id == reviewId)
     const thisReview = thisReviewArr[0]  
@@ -50,6 +49,7 @@ export default function UpdateReviewModal({ reviewId }) {
     }, [description, rating])
 
     return (<div>
+        <p>Your Review Will Be Anonymous</p>
         <form onSubmit={handleSubmit} className="createReviewForm">
         <ReactStars
   half={false}

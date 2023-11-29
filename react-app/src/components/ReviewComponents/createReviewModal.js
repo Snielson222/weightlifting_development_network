@@ -46,6 +46,7 @@ export default function CreateReviewModal({ id }) {
     }, [description, rating])
 
     return (<div>
+        <p>Your Review Will Be Anonymous </p>
         <form onSubmit={handleSubmit} className="createReviewForm">
         <ReactStars
   half={false}

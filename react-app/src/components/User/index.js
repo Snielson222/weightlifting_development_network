@@ -27,8 +27,6 @@ export default function UserPage() {
             }
         })
     })
-    console.log("🚀 ~ file: index.js:22 ~ UserPage ~ favoriteExercises:", favoriteExercises)
-
     useEffect(() => {
         dispatch(thunkGetAllExercises())
         dispatch(thunkGetAllFavorites())
