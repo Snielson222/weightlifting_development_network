@@ -12,15 +12,15 @@ export default function HomePage() {
 
     const allExercises = useSelector((state) => state.exercises)
     const allExerciseArr = Object.values(allExercises)
-    const featuredExercises = []
+    const featuredExercises = [...allExerciseArr]
 
-    function randInt(num) {
-        return Math.floor(Math.random() * num);
-      }
+    // function randInt(num) {
+    //     return Math.floor(Math.random() * num);
+    //   }
     
-    for (let i = 0; i < 4; i++) {
-        featuredExercises.push(allExerciseArr[randInt(allExerciseArr.length - 1)])
-    }
+    // for (let i = 0; i < 4; i++) {
+    //     featuredExercises.push(allExerciseArr[randInt(allExerciseArr.length - 1)])
+    // }
 
     function sortDate(a, b) {
         if (a.createdAt > b.createdAt) {
