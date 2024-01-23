@@ -61,7 +61,7 @@ function LoginFormModal() {
         type="submit">Log In</button>
         <button 
         className="fileCreate"
-        onClick={demoUser}>Demo User</button>
+        onClick={demoUser}>Demo User Login</button>
       </form>
     </>
   );
