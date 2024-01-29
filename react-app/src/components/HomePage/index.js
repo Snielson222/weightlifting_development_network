@@ -14,13 +14,6 @@ export default function HomePage() {
     const allExerciseArr = Object.values(allExercises)
     const featuredExercises = [...allExerciseArr]
 
-    // function randInt(num) {
-    //     return Math.floor(Math.random() * num);
-    //   }
-    
-    // for (let i = 0; i < 4; i++) {
-    //     featuredExercises.push(allExerciseArr[randInt(allExerciseArr.length - 1)])
-    // }
 
     function sortDate(a, b) {
         if (a.createdAt > b.createdAt) {
