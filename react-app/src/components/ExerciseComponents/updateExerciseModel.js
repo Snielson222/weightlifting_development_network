@@ -38,15 +38,9 @@ export default function UpdateExerciseModal({id}) {
 
         const obj = {}
 
-            // if (name.length < 6) {
-            //     obj.name = "Name Must Be Greater Than 6 characters."
-            // }
             if (description.length < 12) {
                 obj.description = "Description Must Be Greater Than 12 characters."
             }
-            // if (muscles == "") {
-            //     obj.muscles = "You Must Choose Targeted Muscles."
-            // }
             setE(obj)
 
 

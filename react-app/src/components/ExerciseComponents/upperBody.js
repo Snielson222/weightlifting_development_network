@@ -16,7 +16,7 @@ export default function UpperBody() {
     }, [dispatch])
 
     return (<div className="paddingExercises">
-        <h1>Upper Body Exercises</h1>
+        <h1>Upper-Body Exercises</h1>
         {upperBodyArr.map((exercise) => (
              <NavLink className="exerciseNav" to={`exercise/${exercise.id}`}>
              <div key={exercise.id}>{exercise.name}</div>
