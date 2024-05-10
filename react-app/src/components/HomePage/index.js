@@ -66,25 +66,25 @@ export default function HomePage() {
         <div id="featuredExercises">
             <div id="featureContainer">
                 <NavLink className="featured" to={`exercise/${featuredExercises[0]?.id}`}>
-                    <h3>{featuredExercises[4]?.name}</h3>
+                    <h3>{featuredExercises[0]?.name}</h3>
                     <p className="dontOverflow">{featuredExercises[0]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${featuredExercises[1]?.id}`}>
-                    <h3>{featuredExercises[5]?.name}</h3>
+                    <h3>{featuredExercises[1]?.name}</h3>
                     <p className="dontOverflow">{featuredExercises[1]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${featuredExercises[2]?.id}`}>
-                    <h3>{featuredExercises[6]?.name}</h3>
+                    <h3>{featuredExercises[2]?.name}</h3>
                     <p className="dontOverflow">{featuredExercises[2]?.description}</p>
                 </NavLink>
             </div>
             <div id="featureContainer">
             <NavLink className="featured" to={`exercise/${featuredExercises[3]?.id}`}>
-                    <h3>{featuredExercises[7]?.name}</h3>
+                    <h3>{featuredExercises[3]?.name}</h3>
                     <p className="dontOverflow">{featuredExercises[3]?.description}</p>
                 </NavLink>
             </div>
